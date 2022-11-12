@@ -50,6 +50,8 @@ colorscheme molokai_self
 
 autocmd! ColorScheme * hi! link PmenuSel CursorLine
 
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 " ---------------------------------------------------------
 " 开启语法高亮
@@ -96,7 +98,7 @@ endif
 " 快捷键打开当前目录
 " ---------------------------------------------------------
 
-let g:netrw_banner = 0
+let g:netrw_banner = v:false
 " 20% 窗口大小
 let g:netrw_winsize = 20
 " 树状目录
@@ -108,4 +110,4 @@ nnoremap <leader>o :Lexplore<CR>
 " Terminal debugger vertical
 " ---------------------------------------------------------
 
-let g:termdebug_wide = 1
+let g:termdebug_wide = v:true
