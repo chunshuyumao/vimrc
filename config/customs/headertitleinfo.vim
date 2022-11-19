@@ -64,7 +64,8 @@ function! s:header_title_info()
 endfunction
 
 " 创建新文件时自动添加标头
-autocmd! BufNewFile *.* call <SID>header_title_info()
+"autocmd! BufNewFile *.* call <SID>header_title_info()
+command! -nargs=0 InsertHeader call <SID>header_title_info()
 
 "function! s:last_modified()
 "  if exists('s:header[&filetype]')
