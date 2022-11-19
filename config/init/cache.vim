@@ -8,6 +8,9 @@
 " 
 " =========================================================
 
+let s:backupdir = glob('~/.vim/cache/backup')
+let s:undodir = glob('~/.vim/cache/undo')
+let s:swapdir = glob('~/.vim/cache/swap')
 
 " ---------------------------------------------------------
 " 备份设置
@@ -19,13 +22,14 @@ set backup
 " 保存时备份
 set writebackup
 
-" 设置备份文件目录
-set backupdir=~/.vim/cache/backup//
-
 " 如果不存在文件夹，则创建
-if !isdirectory(('~/.vim/cache/backup'))
-  call mkdir(expand('~/.vim/cache/backup'), 'p', 0750)
+if !isdirectory(s:backupdir)
+  call mkdir(s:backupdir, 'p', 0750)
 endif
+
+" 设置备份文件目录
+execute printf('set backupdir=%s//', s:backupdir)
+unlet! s:backupdir
 
 
 " ---------------------------------------------------------
@@ -37,27 +41,29 @@ if has('persistent_undo')
   " 开启撤销文件
   set undofile
 
-  " 设置撤销操作保存目录
-  set undodir=~/.vim/cache/undo//
-
   " 如果不存在文件夹，则创建
-  if !isdirectory(('~/.vim/cache/undo'))
-    call mkdir(expand('~/.vim/cache/undo'), 'p', 0750)
+  if !isdirectory(s:undodir)
+    call mkdir(s:undodir, 'p', 0750)
   endif
+
+  " 设置撤销操作保存目录
+  execute printf('set undodir=%s//', s:undodir)
 endif
+unlet! s:undodir
 
 " 设置 命令行 操作历史的记录数
-set history=1000
+set history=10000
 
 
 " ---------------------------------------------------------
 " 交换文件设置
 " ---------------------------------------------------------
 
-" 设置交换文件目录
-set directory=~/.vim/cache/swap//
-
 " 如果不存在文件夹，则创建
-if !isdirectory(expand('~/.vim/cache/swap'))
-  call mkdir(expand('~/.vim/cache/swap'), 'p', 0750)
+if !isdirectory(s:swapdir)
+  call mkdir(s:swapdir, 'p', 0750)
 endif
+
+" 设置交换文件目录
+execute printf('set directory=%s//', s:swapdir)
+unlet! s:swapdir

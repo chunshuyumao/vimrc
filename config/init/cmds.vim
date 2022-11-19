@@ -13,12 +13,7 @@
 " 自动插入时间
 " ---------------------------------------------------------
 
-" 正常模式自动插入时间
-nmap <leader>dt a<leader>dt<Esc>
-
-" 插入模式自动插入时间
-inoremap <leader>dt <C-R>=strftime('%Y-%m-%d %H:%M:%S %A')<CR>
-
+exec printf('iab xdate %s', strftime('%Y-%m-%d %H:%M:%S %A'))
 
 " ---------------------------------------------------------
 " 打开文件时恢复上一次光标所在位置
@@ -34,7 +29,7 @@ autocmd BufReadPost *
 " 设置脚本缩进
 " ---------------------------------------------------------
 
-autocmd FileType c,cpp,lua,sh,vim setlocal tabstop=2 shiftwidth=2
+autocmd FileType c,cpp,lua,sh,vim setl tabstop=2 shiftwidth=2
 
 
 " ---------------------------------------------------------
@@ -52,7 +47,7 @@ endif
 " --------------------------------------------------------
 
 command! -nargs=? -complete=file WordCount :echo ' words:'
-      \ . expand(<q-args>??'%')->readfile()->join('𰻝')
+      \ .. expand(<q-args>??'%')->readfile()->join('𰻝')
       \ ->substitute('[\r\n]\+\|\s\+', '𰻝', 'g')
       \ ->substitute('[\x00-\xff]\+', 'w', 'g')
       \ ->substitute('𰻝\+', '', 'g')

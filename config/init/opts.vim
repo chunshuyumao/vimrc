@@ -81,7 +81,8 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 
 " 尝试使用以下凡是打开文件
-set fileencodings=utf-8,gb2312,gbk,gb18030,bgi5,latin1,ucs-bom,cp936,euc-jp,euc-kr
+set fileencodings=utf-8,gb2312,gbk,gb18030,bgi5
+set fileencodings+=latin1,ucs-bom,cp936,euc-jp,euc-kr
 
 
 " ---------------------------------------------------------
@@ -110,7 +111,7 @@ let g:termdebug_wide = v:true
 
 
 " ---------------------------------------------------------
-" Terminal debugger vertical
+" GUI colors
 " ---------------------------------------------------------
 
 let g:terminal_ansi_colors = [

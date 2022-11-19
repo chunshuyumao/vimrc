@@ -66,12 +66,3 @@ endfunction
 " 创建新文件时自动添加标头
 "autocmd! BufNewFile *.* call <SID>header_title_info()
 command! -nargs=0 InsertHeader call <SID>header_title_info()
-
-"function! s:last_modified()
-"  if exists('s:header[&filetype]')
-"    let l:lineno = line('$') > 20 ? 20 : line('$')
-"    exec '1,' . l:lineno . "g/Modified: /s/Modified: .*/Modified: ".strftime(s:date_fmt)
-"  endif
-"endfunction
-"autocmd BufWritePre,FileWritePre *.* ks|call <SID>last_modified()|'s
-

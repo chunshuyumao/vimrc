@@ -17,16 +17,14 @@
 " ---------------------------------------------------------
 
 set tabline=%!CustomTabLine()
-
 function! CustomTabLine()
   return range(1, tabpagenr('$'))->map({_, v ->
         \ printf("%s %d %s",
         \ v==tabpagenr()?'%#Normal#':'%#Comment#', v, {nr ->
-        \  nr->getbufvar('&buftype')=='quickfix'?
-        \   'Quickfix':{name -> name->empty()?
-        \     'Untitled':(nr->getbufvar('&modified')?
-        \       '+' : '') . name
-        \    }(nr->bufname()->fnamemodify(':t'))
+        \  nr->getbufvar('&buftype')=='quickfix'?'Quickfix':
+        \   {name -> name->empty()?'Untitled':
+        \     (nr->getbufvar('&modified')?'+':'') .. name
+        \   }(nr->bufname()->fnamemodify(':t'))
         \  }(tabpagebuflist(v)[tabpagewinnr(v) - 1]))
         \ })->add('%#TabLineFill#')->join(' »')
 endfunction
