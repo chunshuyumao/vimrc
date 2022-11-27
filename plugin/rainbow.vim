@@ -48,7 +48,7 @@ let s:max = has('gui_running')? len(s:guifgs) : len(s:ctermfgs)
 
 func! rainbow#load(...)
     if exists('b:loaded')
-        cal rainbow#clear()
+        call rainbow#clear()
     endif
 
     if a:0 >= 1

@@ -51,7 +51,7 @@ set statusline+=%a
 " 左右状态栏的分界
 set statusline+=%=
 " 如果开启拼写检测，则显示拼写的语言
-set statusline+=%{&spell?'spell\:'.&spelllang.'\ ':''}
+set statusline+=%{&spell?'spell\:'..&spelllang..'\ ':''}
 " 文件类型
 set statusline+=%y\ 
 " 文件格式，指的是系统格式
