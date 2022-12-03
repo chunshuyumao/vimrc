@@ -1,0 +1,68 @@
+*mdshortcut.txt*   Self-definition markdown functions and commands.
+
+Author:  Chunshuyumao                                      *mdshortcut-author*
+
+==============================================================================
+                                                           *mdshortcut*
+Self-definition markdown functions and commands.
+
+1. Usage                                |mdshortcut-usage|
+2. Mdshortcut Requirements              |mdshortcut-requirements|
+
+==============================================================================
+1. Mdshortcut Usage                                     *mdshortcut-usage*
+
+|i_CTRL-L|      Insert markdown format of links with |mdshortcut-anchor|
+                       in |insert-mode| (see below).
+|v_ml|                 Change selected text to markdown format of links with
+                       inputed URL.
+<
+    [<++>](<++>) <++>
+     ^^^^  ^^^^  ^^^^  Those are mdshortcut-anchors.Using <Tab> changes to next
+                       anchor.
+>
+
+|i_CTRL-K|      Insert markdown format of italic with |mdshortcut-anchor|
+                       in |insert-mode| (see below).
+|v_mi|                  Italic selected text without |mdshortcut-anchor|.
+<
+    *<++>* <++>
+     ^^^^  ^^^^  Those are mdshortcut-anchors.
+>
+
+|i_CTRL-S|      Insert emphasize text, also known as |Strong| tag,
+                       with |mdshortcut-anchor|. See below.
+|v_ms|                 Emphasise selected text without |mdshortcut-anchor|.
+<
+    **<++>** <++>
+      ^^^^   ^^^^  Those are mdshortcut-anchors.
+>
+
+|mt|                    Insert markdown format of table, input row×col in 
+                        |command line|.
+
+|v_mft|                 Format table.
+|:<range>FmtTbl|
+
+|i_CTRL-G|       Insert markdown format of image with |markdown-anchor|.
+|mg|                    Insert image from clipboard using |xclip|.
+
+|i_CTRL-Z|       Popup Citation dialog of |Zotero|.
+|mz|
+
+|mh|                    Insert markdown frontmatter.
+
+|mp|                    Convert markdown file to HTML, and preview in firefox.
+|mc|                    Cancel preview.
+
+|:RefreshCite|          Refresh citation library.
+|:EnableCite|           Enable self difinition citation complete function.
+|:DisableCite|          Disable citation complete function.
+
+==============================================================================
+2. Mdshortcut Requirements                           *mdshortcut-requirements*
+
+For getting image from clipboard, |mdshortcut| needs |xclip|. |Pandoc| is required
+to convert markdown file to anthor format, too.
+
+vim:tw=78:ts=4:et:ft=help:norl:
