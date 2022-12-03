@@ -16,5 +16,6 @@ endif
 let s:loaded = v:true
 
 " 依次加载 config 下的配置文件
-call expand('<sfile>:p:h')->resolve()->printf('%s/config/**/*.vim')
-      \ ->glob(v:true, v:true)->map('"source " .. v:val')->execute()
+call expand('<sfile>:p:h')->resolve()
+      \ ->printf('%s/config/**/*.vim')->glob(v:true, v:true)
+      \ ->sort('n')->map('"source " .. v:val')->execute()
