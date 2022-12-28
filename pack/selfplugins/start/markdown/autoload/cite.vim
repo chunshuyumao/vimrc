@@ -70,6 +70,6 @@ function cite#disable_citation()
     autocmd!
   augroup End
 
-  execute 'setlocal completeopt='.s:cmpopt
+  execute 'setlocal completeopt='..s:cmpopt
 
 endfunction

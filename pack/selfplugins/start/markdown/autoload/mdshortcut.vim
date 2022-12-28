@@ -68,8 +68,8 @@ function! mdshortcut#insert_table() abort
 
   let [X, Y; _] = l:XY->split(',')
   call append('.',
-        \ [repeat('|<++>', X) . '|']->repeat(Y)
-        \ ->insert(repeat('|:----:', X) . '|', 1)
+        \ [repeat('|<++>', X) .. '|']->repeat(Y)
+        \ ->insert(repeat('|:----:', X) .. '|', 1)
         \ ->add(': <++> {#tbl:<++>}'))
 
 endfunction
