@@ -20,8 +20,10 @@
 $
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1674821188,,"wq"
 :q!
-|2,0,1674821062,,"q!"
+|2,0,1674821152,,"q!"
 :w
 |2,0,1674723950,,"w"
 :w !sudo tee %
@@ -30,8 +32,6 @@ $
 |2,0,1674047166,,"tabedit ~/.config/scripts/makepkg.sh"
 :tabedit ~/.config/make
 |2,0,1674047157,,"tabedit ~/.config/make"
-:wq
-|2,0,1674034586,,"wq"
 :set syntax?
 |2,0,1674033072,,"set syntax?"
 :tabedit colors.sh
@@ -1069,36 +1069,176 @@ $
 # File marks:
 'M  56  0  ~/Documents/齐东野语卷三.txt
 |4,77,56,0,1662602841,"~/Documents/齐东野语卷三.txt"
-'0  6  0  ~/.curlrc
-|4,48,6,0,1674821062,"~/.curlrc"
-'1  1  0  ~/.gdbinit
-|4,49,1,0,1674820973,"~/.gdbinit"
-'2  7  20  ~/.local/share/applications/tmux.desktop
-|4,50,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
-'3  4  0  ~/.local/share/applications/tmux.desktop
-|4,51,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
-'4  4  0  ~/.local/share/applications/tmux.desktop
-|4,52,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
-'5  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,53,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
-'6  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,54,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
-'7  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,55,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
-'8  2  8  /etc/NetworkManager/conf.d/dhcp-client.conf
-|4,56,2,8,1674719992,"/etc/NetworkManager/conf.d/dhcp-client.conf"
-'9  2  13  /etc/NetworkManager/conf.d/dhcp-client.conf
-|4,57,2,13,1674719925,"/etc/NetworkManager/conf.d/dhcp-client.conf"
+'0  3  6  ~/.vim/.gitignore
+|4,48,3,6,1674821188,"~/.vim/.gitignore"
+'1  19  0  ~/.vim/vimrc
+|4,49,19,0,1674821152,"~/.vim/vimrc"
+'2  1694  1  ~/.vim/viminfo
+|4,50,1694,1,1674821140,"~/.vim/viminfo"
+'3  6  0  ~/.curlrc
+|4,51,6,0,1674821062,"~/.curlrc"
+'4  1  0  ~/.gdbinit
+|4,52,1,0,1674820973,"~/.gdbinit"
+'5  7  20  ~/.local/share/applications/tmux.desktop
+|4,53,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+'6  4  0  ~/.local/share/applications/tmux.desktop
+|4,54,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
+'7  4  0  ~/.local/share/applications/tmux.desktop
+|4,55,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
+'8  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
+|4,56,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
+'9  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
+|4,57,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
 
 # Jumplist (newest first):
+-'  3  6  ~/.vim/.gitignore
+|4,39,3,6,1674821188,"~/.vim/.gitignore"
+-'  1  0  ~/.vim/.gitignore
+|4,39,1,0,1674821182,"~/.vim/.gitignore"
+-'  19  0  ~/.vim/vimrc
+|4,39,19,0,1674821152,"~/.vim/vimrc"
+-'  19  0  ~/.vim/vimrc
+|4,39,19,0,1674821152,"~/.vim/vimrc"
+-'  1  0  ~/.vim/vimrc
+|4,39,1,0,1674821144,"~/.vim/vimrc"
+-'  1  0  ~/.vim/vimrc
+|4,39,1,0,1674821144,"~/.vim/vimrc"
+-'  1694  1  ~/.vim/viminfo
+|4,39,1694,1,1674821140,"~/.vim/viminfo"
+-'  1694  1  ~/.vim/viminfo
+|4,39,1694,1,1674821140,"~/.vim/viminfo"
+-'  1694  1  ~/.vim/viminfo
+|4,39,1694,1,1674821140,"~/.vim/viminfo"
+-'  1694  1  ~/.vim/viminfo
+|4,39,1694,1,1674821140,"~/.vim/viminfo"
+-'  1  0  ~/.vim/viminfo
+|4,39,1,0,1674821138,"~/.vim/viminfo"
+-'  1  0  ~/.vim/viminfo
+|4,39,1,0,1674821138,"~/.vim/viminfo"
+-'  1  0  ~/.vim/viminfo
+|4,39,1,0,1674821138,"~/.vim/viminfo"
+-'  1  0  ~/.vim/viminfo
+|4,39,1,0,1674821138,"~/.vim/viminfo"
 -'  6  0  ~/.curlrc
 |4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  6  0  ~/.curlrc
+|4,39,6,0,1674821062,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
+-'  1  0  ~/.curlrc
+|4,39,1,0,1674821057,"~/.curlrc"
 -'  1  0  ~/.curlrc
 |4,39,1,0,1674821057,"~/.curlrc"
 -'  1  0  ~/.gdbinit
 |4,39,1,0,1674820973,"~/.gdbinit"
 -'  1  0  ~/.gdbinit
 |4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  1  0  ~/.gdbinit
+|4,39,1,0,1674820973,"~/.gdbinit"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
+-'  7  20  ~/.local/share/applications/tmux.desktop
+|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
 -'  7  20  ~/.local/share/applications/tmux.desktop
 |4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
 -'  7  20  ~/.local/share/applications/tmux.desktop
@@ -1116,183 +1256,58 @@ $
 -'  4  0  ~/.local/share/applications/tmux.desktop
 |4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
 -'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
 -'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
 -'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
 -'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  0  ~/.local/share/applications/tmux.desktop
-|4,39,1,0,1674723739,"~/.local/share/applications/tmux.desktop"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,39,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
--'  2  0  /etc/NetworkManager/conf.d/dns.conf
-|4,39,2,0,1674720001,"/etc/NetworkManager/conf.d/dns.conf"
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  0  ~/.local/share/applications/tmux.desktop
+|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
 
 # History of marks within files (newest to oldest):
+
+> ~/.vim/.gitignore
+	*	1674821187	0
+	"	3	6
+	^	3	7
+	.	3	6
+	+	3	6
+
+> ~/.vim/vimrc
+	*	1674821150	0
+	"	19	0
+
+> ~/.vim/viminfo
+	*	1674821139	0
+	"	1694	1
 
 > ~/.curlrc
 	*	1674821058	0
