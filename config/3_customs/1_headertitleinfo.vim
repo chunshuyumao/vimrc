@@ -16,6 +16,7 @@
 let s:header={
   \  'r':      { 'shabang': 'Rscript'                   },
   \  'sh':     { 'shabang': 'bash'                      },
+  \  'zsh':    { 'shabang': 'zsh'                       },
   \  'vim':    {                       'commentor': '"' },
   \  'lua':    { 'shabang': 'lua',     'commentor': '--'},
   \  'python': { 'shabang': 'python'                    },

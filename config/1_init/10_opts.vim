@@ -84,6 +84,7 @@ set fileformats=unix,dos,mac
 set fileencodings=utf-8,gb2312,gbk,gb18030,bgi5
 set fileencodings+=latin1,ucs-bom,cp936,euc-jp,euc-kr
 
+set viminfo=!,'100,<50,s10,h,n~/.vim/viminfo
 
 " ---------------------------------------------------------
 " 插件配置

@@ -29,7 +29,8 @@ autocmd BufReadPost *
 " 设置脚本缩进
 " ---------------------------------------------------------
 
-autocmd FileType c,cpp,lua,sh,vim setl tabstop=2 shiftwidth=2
+autocmd FileType h,hpp,c,cpp,cxx,lua,zsh,sh,vim
+      \ setl tabstop=2 shiftwidth=2
 
 
 " ---------------------------------------------------------
