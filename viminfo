@@ -20,8 +20,10 @@
 $
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1676704401,,"wq"
 :q!
-|2,0,1676704329,,"q!"
+|2,0,1676704365,,"q!"
 :set syntax=bash
 |2,0,1676704285,,"set syntax=bash"
 :set syntax=zsh
@@ -44,8 +46,6 @@ $
 |2,0,1676703477,,"'<,'>W"
 :CocUpdate
 |2,0,1676703694,,"CocUpdate"
-:wq
-|2,0,1676295172,,"wq"
 :w
 |2,0,1676291989,,"w"
 :w !sudo tee %
@@ -1128,34 +1128,64 @@ $
 # File marks:
 'M  56  0  ~/Documents/齐东野语卷三.txt
 |4,77,56,0,1662602841,"~/Documents/齐东野语卷三.txt"
-'0  4  5  ~/.vim/.gitignore
-|4,48,4,5,1676704329,"~/.vim/.gitignore"
-'1  24  0  ~/.config/scripts/makepkg.sh
-|4,49,24,0,1676704291,"~/.config/scripts/makepkg.sh"
-'2  28  0  ~/.config/scripts/makepkg.sh
-|4,50,28,0,1676704205,"~/.config/scripts/makepkg.sh"
-'3  28  0  ~/.config/scripts/makepkg.sh
-|4,51,28,0,1676704205,"~/.config/scripts/makepkg.sh"
-'4  28  0  ~/.config/scripts/makepkg.sh
-|4,52,28,0,1676704182,"~/.config/scripts/makepkg.sh"
-'5  28  0  ~/.config/scripts/makepkg.sh
-|4,53,28,0,1676704182,"~/.config/scripts/makepkg.sh"
-'6  11  0  ~/.config/scripts/makepkg.sh
-|4,54,11,0,1676704144,"~/.config/scripts/makepkg.sh"
-'7  11  0  ~/.config/scripts/makepkg.sh
-|4,55,11,0,1676704144,"~/.config/scripts/makepkg.sh"
-'8  11  0  ~/.config/scripts/makepkg.sh
-|4,56,11,0,1676704144,"~/.config/scripts/makepkg.sh"
-'9  11  0  ~/.config/scripts/makepkg.sh
-|4,57,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+'0  1  10  ~/.vim/.gitignore
+|4,48,1,10,1676704402,"~/.vim/.gitignore"
+'1  5  5  ~/.vim/.gitignore
+|4,49,5,5,1676704365,"~/.vim/.gitignore"
+'2  4  5  ~/.vim/.gitignore
+|4,50,4,5,1676704365,"~/.vim/.gitignore"
+'3  5  5  ~/.vim/.gitignore
+|4,51,5,5,1676704329,"~/.vim/.gitignore"
+'4  4  5  ~/.vim/.gitignore
+|4,52,4,5,1676704329,"~/.vim/.gitignore"
+'5  24  0  ~/.config/scripts/makepkg.sh
+|4,53,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+'6  28  0  ~/.config/scripts/makepkg.sh
+|4,54,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+'7  28  0  ~/.config/scripts/makepkg.sh
+|4,55,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+'8  28  0  ~/.config/scripts/makepkg.sh
+|4,56,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+'9  28  0  ~/.config/scripts/makepkg.sh
+|4,57,28,0,1676704182,"~/.config/scripts/makepkg.sh"
 
 # Jumplist (newest first):
+-'  1  10  ~/.vim/.gitignore
+|4,39,1,10,1676704402,"~/.vim/.gitignore"
+-'  5  5  ~/.vim/.gitignore
+|4,39,5,5,1676704391,"~/.vim/.gitignore"
+-'  4  5  ~/.vim/.gitignore
+|4,39,4,5,1676704365,"~/.vim/.gitignore"
 -'  4  5  ~/.vim/.gitignore
 |4,39,4,5,1676704329,"~/.vim/.gitignore"
 -'  24  0  ~/.config/scripts/makepkg.sh
 |4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
 -'  24  0  ~/.config/scripts/makepkg.sh
 |4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
 -'  35  8  ~/.config/scripts/makepkg.sh
 |4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
 -'  35  8  ~/.config/scripts/makepkg.sh
@@ -1165,9 +1195,45 @@ $
 -'  28  0  ~/.config/scripts/makepkg.sh
 |4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
 -'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
 |4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
 -'  28  0  ~/.config/scripts/makepkg.sh
 |4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
 -'  28  0  ~/.config/scripts/makepkg.sh
 |4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
 -'  28  0  ~/.config/scripts/makepkg.sh
@@ -1184,6 +1250,54 @@ $
 |4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
 -'  11  0  ~/.config/scripts/makepkg.sh
 |4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
 -'  11  0  ~/.config/scripts/makepkg.sh
 |4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
 -'  11  0  ~/.config/scripts/makepkg.sh
@@ -1204,162 +1318,49 @@ $
 |4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
 -'  34  0  ~/.config/scripts/makepkg.sh
 |4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  67  2  ~/.config/scripts/mv2trash.sh
-|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  68  2  ~/.config/scripts/mv2trash.sh
-|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
--'  52  0  ~/.config/scripts/mv2trash.sh
-|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
 
 # History of marks within files (newest to oldest):
 
 > ~/.vim/.gitignore
-	*	1676704327	0
-	"	4	5
-	^	4	6
-	.	4	5
-	+	3	6
-	+	4	5
+	*	1676704401	0
+	"	1	10
+	^	1	11
+	.	1	10
+	+	4	6
+	+	5	5
+	+	1	10
 
 > ~/.config/scripts/makepkg.sh
 	*	1676704291	0
