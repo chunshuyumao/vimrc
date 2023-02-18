@@ -11,7 +11,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/wifi
+~MSle0~/JAON
 
 # Last Substitute Search Pattern:
 ~MSle0&小 RNA
@@ -20,28 +20,78 @@
 $
 
 # Command Line History (newest to oldest):
-:wq
-|2,0,1674821188,,"wq"
 :q!
-|2,0,1674821152,,"q!"
+|2,0,1676704329,,"q!"
+:set syntax=bash
+|2,0,1676704285,,"set syntax=bash"
+:set syntax=zsh
+|2,0,1676704264,,"set syntax=zsh"
+:set syntax=none
+|2,0,1676704259,,"set syntax=none"
+:set syntax?
+|2,0,1676704253,,"set syntax?"
+:set syntax=
+|2,0,1676704222,,"set syntax="
+:set syntax
+|2,0,1676704217,,"set syntax"
+:C
+|2,0,1676704174,,"C"
+:CocU
+|2,0,1676704086,,"CocU"
+:W
+|2,0,1676703484,,"W"
+:'<,'>W
+|2,0,1676703477,,"'<,'>W"
+:CocUpdate
+|2,0,1676703694,,"CocUpdate"
+:wq
+|2,0,1676295172,,"wq"
 :w
-|2,0,1674723950,,"w"
+|2,0,1676291989,,"w"
 :w !sudo tee %
-|2,0,1674722008,,"w !sudo tee %"
+|2,0,1676286743,,"w !sudo tee %"
+:help gj
+|2,0,1676277977,,"help gj"
+:help v:
+|2,0,1676277828,,"help v:"
+:w!
+|2,0,1676275922,,"w!"
+:EnableCite
+|2,0,1676254977,,"EnableCite"
+:terminal
+|2,0,1676254434,,"terminal"
+:packadd Term
+|2,0,1676254431,,"packadd Term"
+:q
+|2,0,1676213529,,"q"
+:.,.+9echo 
+|2,0,1676212909,,".,.+9echo "
+:help v:count
+|2,0,1676212830,,"help v:count"
+:echo v:count
+|2,0,1676212811,,"echo v:count"
+:echo v:colornames
+|2,0,1676212807,,"echo v:colornames"
+:echo colu
+|2,0,1676212790,,"echo colu"
+:set wrap?
+|2,0,1676212752,,"set wrap?"
+:echo wrap
+|2,0,1676212748,,"echo wrap"
+:help sort
+|2,0,1676212202,,"help sort"
+:help draw
+|2,0,1675991698,,"help draw"
+:set redrawtime?
+|2,0,1675991685,,"set redrawtime?"
 :tabedit ~/.config/scripts/makepkg.sh
 |2,0,1674047166,,"tabedit ~/.config/scripts/makepkg.sh"
 :tabedit ~/.config/make
 |2,0,1674047157,,"tabedit ~/.config/make"
-:set syntax?
-|2,0,1674033072,,"set syntax?"
 :tabedit colors.sh
 |2,0,1673619959,,"tabedit colors.sh"
 :tabedit ffmpeg.txt
 |2,0,1673619917,,"tabedit ffmpeg.txt"
-:set syntax=zsh
-|2,0,1673619730,,"set syntax=zsh"
-:q
-|2,0,1673619525,,"q"
 :sml
 |2,0,1673614665,,"sml"
 :set viminfo?
@@ -68,8 +118,6 @@ $
 |2,0,1673343570,,"tabedit ~/.config/scripts/upload.sh"
 :tabedit ../utils.sh
 |2,0,1673104167,,"tabedit ../utils.sh"
-:w!
-|2,0,1673104163,,"w!"
 :tabedit ~/.config/
 |2,0,1673102387,,"tabedit ~/.config/"
 :tabedit .zshenv
@@ -106,8 +154,6 @@ $
 |2,0,1672582387,,"recover"
 :help backup
 |2,0,1672582370,,"help backup"
-:W
-|2,0,1672386861,,"W"
 :set spelllang+=latin
 |2,0,1672386722,,"set spelllang+=latin"
 :Unin:q!
@@ -138,8 +184,6 @@ $
 |2,0,1672197539,,"loadview "
 :help loadview
 |2,0,1672197437,,"help loadview"
-:CocUpdate
-|2,0,1672193889,,"CocUpdate"
 :CocUninstall
 |2,0,1672193883,,"CocUninstall"
 :3,$d
@@ -150,8 +194,6 @@ $
 |2,0,1672190526,,"1,4d"
 :tabedit test.md
 |2,0,1672190519,,"tabedit test.md"
-:EnableCite
-|2,0,1672189452,,"EnableCite"
 :tabedit ~/Documents/Pandoc/defaults/HTML.yaml
 |2,0,1672188670,,"tabedit ~/Documents/Pandoc/defaults/HTML.yaml"
 :tabedit ~/.vim/pack/selfplugins/start/markdown/autoload/mdshortcut.vim
@@ -162,8 +204,6 @@ $
 |2,0,1672187372,,"1,3d"
 :w test.md
 |2,0,1672153440,,"w test.md"
-:terminal
-|2,0,1672045846,,"terminal"
 :help mkview
 |2,0,1672045826,,"help mkview"
 :qall
@@ -346,8 +386,6 @@ $
 |2,0,1670028799,,"echo"
 :help sort()
 |2,0,1670028266,,"help sort()"
-:help sort
-|2,0,1670028262,,"help sort"
 :echo expand('%:p:h')->resolve()->printf('%s/config/**/*.vim')->glob(1,1)
 |2,0,1670028235,,"echo expand('%:p:h')->resolve()->printf('%s/config/**/*.vim')->glob(1,1)"
 :echo expand('%:p:h')->resolve()->printf('%s/config/**/*.vim')->glob()
@@ -630,6 +668,24 @@ $
 |2,0,1668653618,,"WordCount"
 
 # Search String History (newest to oldest):
+?/JAON
+|2,1,1676276517,47,"JAON"
+? \<1\>
+|2,1,1676212051,,"\\<1\\>"
+? @$
+|2,1,1676211867,,"@$"
+? ^$
+|2,1,1676211867,,"^$"
+?/fre
+|2,1,1675952780,47,"fre"
+?/MHz
+|2,1,1675952776,47,"MHz"
+?/MHZ
+|2,1,1675952773,47,"MHZ"
+?/Mhz
+|2,1,1675952770,47,"Mhz"
+?/multi
+|2,1,1674983159,47,"multi"
 ?/wifi
 |2,1,1674531554,47,"wifi"
 ?/save
@@ -638,10 +694,6 @@ $
 |2,1,1673614865,,"usr"
 ?/noto
 |2,1,1673605235,47,"noto"
-? ^$
-|2,1,1673596581,,"^$"
-? @$
-|2,1,1673596581,,"@$"
 ??\a
 |2,1,1673596581,63,"\\a"
 ?/OUTPUT
@@ -1009,39 +1061,46 @@ $
 
 # Registers:
 "0	LINE	0
-	          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'
-|3,0,0,1,1,0,1674047301,"          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'"
-"1	LINE	0
-	          'http::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'
-|3,0,1,1,1,0,1674047383,"          'http::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'"
-"2	LINE	0
-	          'https::/home/chunshuyumao/.config/scripts/makepkg.sh %o %u'
-|3,0,2,1,1,0,1674047376,"          'https::/home/chunshuyumao/.config/scripts/makepkg.sh %o %u'"
+	#options="${options} -drive file=./winxp.qcow2,index=3,media=disk,if=virtio"
+|3,0,0,1,1,0,1676286520,"#options=\"${options} -drive file=./winxp.qcow2,index=3,media=disk,if=virtio\""
+""1	LINE	0
+	  # Prompt for confirming remove.
+|3,1,1,1,1,0,1676704115,"  # Prompt for confirming remove."
+"2	BLOCK	30
+	## 主要研究（设计）内容、研究（
+	
+|3,0,2,2,2,30,1676278088,"## 主要研究（设计）内容、研究（",""
 "3	LINE	0
-	          'https::/home/chunshuyumao/.config/scripts/makepkg.sh %o %u'
-|3,0,3,1,1,0,1674047367,"          'https::/home/chunshuyumao/.config/scripts/makepkg.sh %o %u'"
+	1961
+<由于具有影响细胞增殖和前体 mRNA 剪接的能力，CDC40 在癌变细胞中也与其他因子有着复杂的相互作用，从而影响对癌细胞的治疗。有研究表明[@MiR422aGastricCancer]在胃部癌细胞中，影响细胞的后转录调控（post-transcriptional regular）和肿瘤抑制的 miR-422a 小 mRNA 与 CDC40 存在某种耦合关系，前者通过下调影响 CDC40 的浓度进而影响细胞周期。miR-422a 功能的行使与 CDC40 浓度有着密切的关系，可以通过 CDC40 的浓度调控抑制肿瘤细胞的复制。同样的，Kong 等人[@kongHBxinducedMiR1269bNFkB2016]也认为肝癌患者的癌细胞会因为 CDC40 同源物质含量的明显上调，增强癌细胞的增殖和转移，而 miR-1269b 被认为是癌细胞调控 CDC40 的主要因子。微小 mRNA （micro-RNAs, miRNAs）是一种不编码的 mRNA, 在生命活动中参与各种重要的反应，同时也被认为与人类的多种癌症的发展有关。大量的研究[@RoleMiR200Family;@MicroRNA378InhibitsCell;@MiR378InhibitsCell;@FunctionalAnalysesInteracting;@MiR1269aMiR1269bEmerging]表明小 mRNA 在影响细胞增殖中主要通过直接或间接地调控 CDC40 及其同源物浓度起调控作用，小 mRNA 一般靶向 CDC40 ，然后促进 CDC40 的增殖，借助 CDC40 的功能影响细胞的复制。此外还有研究[@ValidatingWDRepeata;@IdentificationPotentialTherapeutic]认为 CDC40 在癌细胞中被用于促进癌细胞的增殖，可以作为癌细胞治疗的潜在靶点。因此了解 CDC40 在细胞内发挥作用的机制，对探索癌细胞增殖和癌症药物研发有着重要的作用。除了在癌细胞中被用于调控细胞的增殖，CDC40 与病毒在人体内的复制也息息相关。Zhang 等人[@EffectsHepatitisVirus]的研究表明，乙型肝炎病毒（hepatitis B virus）的 X 蛋白（X protein）对肝癌的发展有重要影响，也与 CDC40 有着密切的关系。
+	
+|3,0,3,1,2,0,1676278063,>1960
+|<"由于具有影响细胞增殖和前体 mRNA 剪接的能力，CDC40 在癌变细胞中也与其他因子有着复杂的相互作用，从而影响对癌细胞的治疗。有研究表明[@MiR422aGastricCancer]在胃部癌细胞中，影响细胞的后转录调控（post-transcriptional regular）和肿瘤抑制的 miR-422a 小 mRNA 与 CDC40 存在某种耦合关系，前者通过下调影响 CDC40 的浓度进而影响细胞周期。miR-422a 功能的行使与 CDC40 浓度有着密切
+|<的关系，可以通过 CDC40 的浓度调控抑制肿瘤细胞的复制。同样的，Kong 等人[@kongHBxinducedMiR1269bNFkB2016]也认为肝癌患者的癌细胞会因为 CDC40 同源物质含量的明显上调，增强癌细胞的增殖和转移，而 miR-1269b 被认为是癌细胞调控 CDC40 的主要因子。微小 mRNA （micro-RNAs, miRNAs）是一种不编码的 mRNA, 在生命活动中参与各种重要的反应，同时也被认为与人类的多种癌症的发展有关�
+|<�大量的研究[@RoleMiR200Family;@MicroRNA378InhibitsCell;@MiR378InhibitsCell;@FunctionalAnalysesInteracting;@MiR1269aMiR1269bEmerging]表明小 mRNA 在影响细胞增殖中主要通过直接或间接地调控 CDC40 及其同源物浓度起调控作用，小 mRNA 一般靶向 CDC40 ，然后促进 CDC40 的增殖，借助 CDC40 的功能影响细胞的复制。此外还有研究[@ValidatingWDRepeata;@IdentificationPotentialTherapeutic]认为 CDC40 在癌细胞中被用于促进癌�
+|<�胞的增殖，可以作为癌细胞治疗的潜在靶点。因此了解 CDC40 在细胞内发挥作用的机制，对探索癌细胞增殖和癌症药物研发有着重要的作用。除了在癌细胞中被用于调控细胞的增殖，CDC40 与病毒在人体内的复制也息息相关。Zhang 等人[@EffectsHepatitisVirus]的研究表明，乙型肝炎病毒（hepatitis B virus）的 X 蛋白（X protein）对肝癌的发展有重要影响，也与 CDC40 有着密切的关系。",>2
+|<""
 "4	LINE	0
-	          'http::/usr/bin/curl -qgb "" -fLC - --retry 3 --retry-delay 3 -o %o %u'
-|3,0,4,1,1,0,1674047332,"          'http::/usr/bin/curl -qgb \"\" -fLC - --retry 3 --retry-delay 3 -o %o %u'"
+		allow = always
+|3,0,4,1,1,0,1676258424,"	allow = always"
 "5	LINE	0
-	          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'
-|3,0,5,1,1,0,1674047318,"          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'"
+	[protocol "https"]
+|3,0,5,1,1,0,1676258423,"[protocol \"https\"]"
 "6	LINE	0
-	          'http::/usr/bin/curl -qgb "" -fLC - --retry 3 --retry-delay 3 -o %o %u'
-|3,0,6,1,1,0,1674047306,"          'http::/usr/bin/curl -qgb \"\" -fLC - --retry 3 --retry-delay 3 -o %o %u'"
+	#[url "https://github.91chi.fun/https://github.com/"]
+|3,0,6,1,1,0,1676256698,"#[url \"https://github.91chi.fun/https://github.com/\"]"
 "7	LINE	0
-	          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'
-|3,0,7,1,1,0,1674047296,"          'https::/usr/bin/aria2c -U Wget -c -m 3 -t 10 -o %o %u'"
+	
+|3,0,7,1,1,0,1676214406,""
 "8	LINE	0
-	#PLATFORM_PROFILE_ON_AC=performance
-|3,0,8,1,1,0,1673932545,"#PLATFORM_PROFILE_ON_AC=performance"
+	bind t display-message shell "ps -o stat= -o clomm="
+|3,0,8,1,1,0,1676214405,"bind t display-message shell \"ps -o stat= -o clomm=\""
 "9	LINE	0
 	
-|3,0,9,1,1,0,1673932439,""
-"a@	LINE	0
-	# ------------------------------------------
-	
-|3,2,10,1,2,0,1668597737,"# ------------------------------------------",""
+|3,0,9,1,1,0,1676211867,""
+"a@	CHAR	0
+	yyp��a
+|3,2,10,0,1,0,1676212066,"yyp��a"
 "b	LINE	0
 	==============================================================================
 |3,0,11,1,1,0,1667111679,"=============================================================================="
@@ -1060,300 +1119,597 @@ $
 "q	CHAR	0
 	;
 |3,0,26,0,1,0,1667030420,";"
-""-	CHAR	0
-	c
-|3,1,36,0,1,0,1674719980,"c"
+"-	CHAR	0
+	#
+|3,0,36,0,1,0,1676286738,"#"
 
 # global variables:
 
 # File marks:
 'M  56  0  ~/Documents/齐东野语卷三.txt
 |4,77,56,0,1662602841,"~/Documents/齐东野语卷三.txt"
-'0  3  6  ~/.vim/.gitignore
-|4,48,3,6,1674821188,"~/.vim/.gitignore"
-'1  19  0  ~/.vim/vimrc
-|4,49,19,0,1674821152,"~/.vim/vimrc"
-'2  1694  1  ~/.vim/viminfo
-|4,50,1694,1,1674821140,"~/.vim/viminfo"
-'3  6  0  ~/.curlrc
-|4,51,6,0,1674821062,"~/.curlrc"
-'4  1  0  ~/.gdbinit
-|4,52,1,0,1674820973,"~/.gdbinit"
-'5  7  20  ~/.local/share/applications/tmux.desktop
-|4,53,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
-'6  4  0  ~/.local/share/applications/tmux.desktop
-|4,54,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
-'7  4  0  ~/.local/share/applications/tmux.desktop
-|4,55,4,0,1674723769,"~/.local/share/applications/tmux.desktop"
-'8  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,56,1,14,1674722014,"/etc/NetworkManager/dnsmasq.d/cache.conf"
-'9  1  14  /etc/NetworkManager/dnsmasq.d/cache.conf
-|4,57,1,14,1674720940,"/etc/NetworkManager/dnsmasq.d/cache.conf"
+'0  4  5  ~/.vim/.gitignore
+|4,48,4,5,1676704329,"~/.vim/.gitignore"
+'1  24  0  ~/.config/scripts/makepkg.sh
+|4,49,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+'2  28  0  ~/.config/scripts/makepkg.sh
+|4,50,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+'3  28  0  ~/.config/scripts/makepkg.sh
+|4,51,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+'4  28  0  ~/.config/scripts/makepkg.sh
+|4,52,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+'5  28  0  ~/.config/scripts/makepkg.sh
+|4,53,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+'6  11  0  ~/.config/scripts/makepkg.sh
+|4,54,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+'7  11  0  ~/.config/scripts/makepkg.sh
+|4,55,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+'8  11  0  ~/.config/scripts/makepkg.sh
+|4,56,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+'9  11  0  ~/.config/scripts/makepkg.sh
+|4,57,11,0,1676704144,"~/.config/scripts/makepkg.sh"
 
 # Jumplist (newest first):
--'  3  6  ~/.vim/.gitignore
-|4,39,3,6,1674821188,"~/.vim/.gitignore"
--'  1  0  ~/.vim/.gitignore
-|4,39,1,0,1674821182,"~/.vim/.gitignore"
--'  19  0  ~/.vim/vimrc
-|4,39,19,0,1674821152,"~/.vim/vimrc"
--'  19  0  ~/.vim/vimrc
-|4,39,19,0,1674821152,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1674821144,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1674821144,"~/.vim/vimrc"
--'  1694  1  ~/.vim/viminfo
-|4,39,1694,1,1674821140,"~/.vim/viminfo"
--'  1694  1  ~/.vim/viminfo
-|4,39,1694,1,1674821140,"~/.vim/viminfo"
--'  1694  1  ~/.vim/viminfo
-|4,39,1694,1,1674821140,"~/.vim/viminfo"
--'  1694  1  ~/.vim/viminfo
-|4,39,1694,1,1674821140,"~/.vim/viminfo"
--'  1  0  ~/.vim/viminfo
-|4,39,1,0,1674821138,"~/.vim/viminfo"
--'  1  0  ~/.vim/viminfo
-|4,39,1,0,1674821138,"~/.vim/viminfo"
--'  1  0  ~/.vim/viminfo
-|4,39,1,0,1674821138,"~/.vim/viminfo"
--'  1  0  ~/.vim/viminfo
-|4,39,1,0,1674821138,"~/.vim/viminfo"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  6  0  ~/.curlrc
-|4,39,6,0,1674821062,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.curlrc
-|4,39,1,0,1674821057,"~/.curlrc"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  1  0  ~/.gdbinit
-|4,39,1,0,1674820973,"~/.gdbinit"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  7  20  ~/.local/share/applications/tmux.desktop
-|4,39,7,20,1674724021,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
--'  4  0  ~/.local/share/applications/tmux.desktop
-|4,39,4,0,1674723794,"~/.local/share/applications/tmux.desktop"
+-'  4  5  ~/.vim/.gitignore
+|4,39,4,5,1676704329,"~/.vim/.gitignore"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  24  0  ~/.config/scripts/makepkg.sh
+|4,39,24,0,1676704291,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  35  8  ~/.config/scripts/makepkg.sh
+|4,39,35,8,1676704279,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704206,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704205,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  28  0  ~/.config/scripts/makepkg.sh
+|4,39,28,0,1676704182,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704157,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  11  0  ~/.config/scripts/makepkg.sh
+|4,39,11,0,1676704144,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  34  0  ~/.config/scripts/makepkg.sh
+|4,39,34,0,1676704141,"~/.config/scripts/makepkg.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  67  2  ~/.config/scripts/mv2trash.sh
+|4,39,67,2,1676704119,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  68  2  ~/.config/scripts/mv2trash.sh
+|4,39,68,2,1676704117,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
+-'  52  0  ~/.config/scripts/mv2trash.sh
+|4,39,52,0,1676704112,"~/.config/scripts/mv2trash.sh"
 
 # History of marks within files (newest to oldest):
 
 > ~/.vim/.gitignore
-	*	1674821187	0
-	"	3	6
-	^	3	7
-	.	3	6
+	*	1676704327	0
+	"	4	5
+	^	4	6
+	.	4	5
 	+	3	6
+	+	4	5
 
-> ~/.vim/vimrc
-	*	1674821150	0
-	"	19	0
+> ~/.config/scripts/makepkg.sh
+	*	1676704291	0
+	"	24	0
 
-> ~/.vim/viminfo
-	*	1674821139	0
-	"	1694	1
+> ~/.config/scripts/mv2trash.sh
+	*	1676704118	0
+	"	67	2
+	.	67	0
+	+	13	0
+	+	52	0
+	+	67	0
 
-> ~/.curlrc
-	*	1674821058	0
-	"	6	0
+> ~/.config/scripts/message/client.py
+	*	1676704046	0
+	"	31	26
 
-> ~/.gdbinit
-	*	1674820972	0
+> ~/.config/scripts/bl.sh
+	*	1676703942	0
+	"	18	28
+	^	18	0
+	.	18	0
+	+	18	0
+
+> ~/Documents/MarkdownFiles/GraduationDesign/CDC40-核定位信号的鉴定.md
+	*	1676703786	0
+	"	51	0
+	^	21	37
+	.	24	0
+	+	21	36
+	+	16	0
+	+	24	0
+
+> ~/.config/scripts/local_forwarding.sh
+	*	1676703776	0
+	"	42	0
+
+> ~/Documents/MarkdownFiles/QiDongYeYu/尚书.md
+	*	1676295171	0
+	"	7	354
+	^	7	357
+	.	7	354
+	+	1	16
+	+	3	78
+	+	5	225
+	+	7	354
+
+> ~/Documents/MarkdownFiles/diag1.txt
+	*	1676290375	0
+	"	1	6
+	^	1	9
+	.	1	6
+	+	1	6
+
+> ~/Documents/MarkdownFiles/diag.txt
+	*	1676290180	0
+	"	1	315
+	^	1	318
+	.	1	318
+	+	1	318
+
+> ~/Documents/MarkdownFiles/diag
+	*	1676289976	0
 	"	1	0
 
-> ~/.local/share/applications/tmux.desktop
-	*	1674724019	0
-	"	7	20
-	^	4	74
-	.	4	74
-	+	4	74
-
-> /etc/NetworkManager/dnsmasq.d/cache.conf
-	*	1674722014	0
-	"	1	14
-	^	1	15
-	.	1	14
-	+	1	14
-
-> /etc/NetworkManager/conf.d/dns.conf
-	*	1674720000	0
-	"	2	0
-
-> /etc/NetworkManager/conf.d/dhcp-client.conf
-	*	1674719990	0
-	"	2	8
-	^	2	14
-	.	2	8
-	+	2	8
-
 > /etc/pacman.conf
-	*	1674531596	0
-	"	25	36
-	^	25	37
-	.	25	36
+	*	1676286744	0
+	"	25	0
+	^	25	1
+	.	25	0
 	+	37	0
 	+	33	0
 	+	25	36
+	+	94	0
+	+	93	0
+	+	94	0
+	+	25	0
+	+	93	0
+	+	94	0
+	+	93	0
+	+	26	0
+	+	25	0
+	+	26	0
+	+	25	0
+
+> ~/Documents/QEMU/WinXP/setup.sh
+	*	1676286535	0
+	"	39	0
+	^	39	0
+	.	36	64
+	+	17	35
+	+	16	0
+	+	32	71
+	+	35	44
+	+	40	51
+	+	34	0
+	+	25	0
+	+	35	0
+	+	36	64
+
+> ~/.vim/pack/plugins/start/vim-polyglot/.git/config
+	*	1676286502	0
+	"	7	7
+	.	7	7
+	+	7	7
+
+> ~/.vim/pack/plugins/start/coc.nvim/.git/config
+	*	1676286313	0
+	"	7	7
+	.	7	7
+	+	7	7
+
+> ~/.vim/viminfo
+	*	1676278165	0
+	"	1694	1
+
+> /usr/share/vim/vim90/doc/motion.txt
+	*	1676278138	0
+	"	155	1
+
+> /usr/share/vim/vim90/doc/eval.txt
+	*	1676277974	0
+	"	2116	57
+
+> ~/Documents/NotePages/source/_posts/Pandoc-从-Markdown-到其他格式.md
+	*	1676276520	0
+	"	200	6
+	^	200	7
+	.	200	6
+	+	200	6
+
+> ~/Documents/NotePages/source/_posts/Pandoc-
+	*	1676276464	0
+	"	1	0
+
+> ~/Pictures/202203/.git/config
+	*	1676276222	0
+	"	8	44
+	^	8	45
+	.	8	44
+	+	8	0
+	+	7	1
+	+	8	44
+
+> ~/Documents/NotePages/.git/config
+	*	1676276175	0
+	"	7	0
+
+> /etc/hosts
+	*	1676275533	0
+	"	4	9
+	.	4	9
+	+	4	9
+
+> ~/Documents/NotePages/source/_posts/Chevereto配合PicGo搭建自己的图床.md
+	*	1676275247	0
+	"	102	0
+
+> ~/Documents/NotePages/source/_posts/GitHub-图床加速.md
+	*	1676274899	0
+	"	62	0
+
+> ~/.ssh/id_rsa.pub
+	*	1676274826	0
+	"	1	507
+
+> ~/Documents/NotePages/source/_posts/Chevereto配合PicGo搭建自己的图床.mdne
+	*	1676274601	0
+	"	67	0
+
+> ~/Documents/NotePages/.git/logs/refs/heads/source
+	*	1676274157	0
+	"	9	0
+
+> ~/Documents/NotePages/.git/HEAD
+	*	1676274106	0
+	"	1	0
+
+> ~/.gitconfig
+	*	1676258424	0
+	"	8	1
+	^	6	1
+	.	9	0
+	+	4	0
+	+	6	0
+	+	4	0
+	+	5	0
+	+	4	0
+	+	5	0
+	+	6	0
+	+	9	0
+
+> ~/.config/tmux/tmux.conf
+	*	1676214407	0
+	"	13	0
+	.	13	0
+	+	7	26
+	+	12	0
+	+	13	0
+
+> /tmp/test
+	*	1676213530	0
+	"	133	0
+	^	133	0
+	.	133	0
+	+	2	0
+	+	3	0
+	+	4	0
+	+	14	0
+	+	114	0
+	+	115	10
+	+	116	0
+	+	117	0
+	+	118	0
+	+	119	0
+	+	120	1
+	+	130	1
+	+	131	0
+	+	129	0
+	+	131	1
+	+	133	0
+	+	120	0
+	+	133	0
+
+> /usr/share/vim/vim90/doc/change.txt
+	*	1676212581	0
+	"	1942	3
+
+> /tmp/test.
+	*	1676212040	0
+	"	1	0
+
+> /tmp/zsh1HpgTc
+	*	1676211858	0
+	"	1	0
+
+> /tmp/zshfWkcNZ
+	*	1676211823	0
+	"	8	0
+
+> ~/.condarc
+	*	1676211785	0
+	"	8	0
+
+> ~/.config/zsh/functions/gh
+	*	1676202425	0
+	"	1	0
+	.	1	5
+	+	1	5
+
+> ~/.config/zsh/functions/cheat
+	*	1676202418	0
+	"	13	0
+	^	1	14
+	.	1	13
+	+	2	0
+	+	3	19
+	+	4	27
+	+	5	10
+	+	7	0
+	+	8	0
+	+	8	23
+	+	28	0
+	+	9	15
+	+	10	20
+	+	16	19
+	+	26	0
+	+	27	8
+	+	15	11
+	+	16	18
+	+	15	0
+	+	11	14
+	+	12	78
+	+	13	14
+	+	14	14
+	+	16	17
+	+	17	14
+	+	18	0
+	+	17	73
+	+	19	0
+	+	18	118
+	+	23	47
+	+	24	73
+	+	11	0
+	+	17	0
+	+	23	18
+	+	24	19
+	+	22	19
+	+	18	0
+	+	23	79
+	+	5	9
+	+	1	13
+
+> ~/.config/zsh/functions/swc
+	*	1676202383	0
+	"	19	0
+
+> ~/Downloads/Miniconda3-py39_4.12.0-Linux-x86_64.sh
+	*	1676202025	0
+	"	293693	0
+
+> /etc/sysctl.d/40-hugepage.conf
+	*	1676179622	0
+	"	1	21
+	^	1	22
+	.	1	21
+	+	1	21
+
+> ~/Documents/QEMU/Win10LTSC/setup.sh
+	*	1676179512	0
+	"	18	23
+	.	18	23
+	+	18	23
+
+> ~/Documents/QEMU/CentOS7/setup.sh
+	*	1676179371	0
+	"	38	0
+
+> /etc/fstab
+	*	1676178970	0
+	"	20	20
+	^	20	87
+	.	21	0
+	+	20	86
+	+	21	77
+	+	20	86
+	+	21	0
+
+> /usr/share/vim/vim90/doc/various.txt
+	*	1675991905	0
+	"	21	16
+
+> ~/.config/zsh/zsh-conf
+	*	1675991658	0
+	"	144	0
+
+> ~/.zshrc
+	*	1675991607	0
+	"	37	18
+	^	8	21
+	.	8	20
+	+	8	20
+
+> ~/.zshenv
+	*	1675991590	0
+	"	7	0
 
 > /etc/tlp.conf
-	*	1674531558	0
-	"	458	46
+	*	1675952867	0
+	"	288	18
 	^	539	1
 	.	539	0
 	+	451	38
@@ -1393,6 +1749,138 @@ $
 	+	534	0
 	+	539	0
 
+> ~/.local/share/Steam/steamapps/common/dont_starve/bin/dontstarve
+	*	1675703200	0
+	"	3	0
+
+> ~/.local/share/applications/Don't Starve.desktop
+	*	1675703129	0
+	"	5	0
+
+> ~/log
+	*	1675699401	0
+	"	4	246
+
+> /usr/bin/steam
+	*	1675698952	0
+	"	2	0
+
+> ~/.local/share/applications/file
+	*	1675698400	0
+	"	1	0
+
+> /var/lib/pacman/local/noto-fonts-cjk-20220126-1/desc
+	*	1675432263	0
+	"	1	0
+
+> ~/.vim/pack/plugins/start/coc.nvim/src/markdown/renderer.ts
+	*	1675432084	0
+	"	54	0
+
+> ~/.vim/pack/plugins/start/coc.nvim/src/events.ts
+	*	1675432070	0
+	"	198	11
+	.	167	0
+	+	167	0
+
+> ~/.vim/pack/plugins/start/coc.nvim/node_modules/@types/node/util.d.ts
+	*	1675432050	0
+	"	47	13
+
+> ~/.vim/pack/plugins/start/coc.nvim/jest.js
+	*	1675431938	0
+	"	3	10
+	^	4	11
+	.	4	10
+	+	4	10
+
+> ~/.vim/pack/plugins/start/coc.nvim/.git/refs/heads/master
+	*	1675419408	0
+	"	1	0
+	.	2	0
+	+	2	0
+
+> ~/.xinitrc
+	*	1675068031	0
+	"	45	0
+
+> ~/.local/share/applications/Total War SHOGUN 2.desktop
+	*	1675067611	0
+	"	5	0
+
+> ~/.local/share/Steam/steam.sh
+	*	1675067438	0
+	"	184	0
+
+> ~/.local/share/Steam/steam
+	*	1675067377	0
+	"	1	0
+
+> /usr/share/applications/steam-native.desktop
+	*	1675051578	0
+	"	283	0
+
+> /usr/share/applications/mutter.desktop
+	*	1675051456	0
+	"	82	0
+
+> /usr/share/applications/mimeinfo.cache
+	*	1675051443	0
+	"	1	0
+
+> /usr/share/applications/qemu.desktop
+	*	1675051435	0
+	"	8	0
+
+> /usr/share/applications/steam.desktop
+	*	1675051198	0
+	"	35	0
+
+> ~/.config/.mono/keypairs/[1][98f3a7e3-0d6e-f432-8a18-e1144b53633f][-1].xml
+	*	1674822234	0
+	"	7	670
+
+> ~/.config/.gsd-keyboard.settings-ported
+	*	1674822203	0
+	"	1	0
+
+> ~/.vim/vimrc
+	*	1674821150	0
+	"	19	0
+
+> ~/.curlrc
+	*	1674821058	0
+	"	6	0
+
+> ~/.gdbinit
+	*	1674820972	0
+	"	1	0
+
+> ~/.local/share/applications/tmux.desktop
+	*	1674724019	0
+	"	7	20
+	^	4	74
+	.	4	74
+	+	4	74
+
+> /etc/NetworkManager/dnsmasq.d/cache.conf
+	*	1674722014	0
+	"	1	14
+	^	1	15
+	.	1	14
+	+	1	14
+
+> /etc/NetworkManager/conf.d/dns.conf
+	*	1674720000	0
+	"	2	0
+
+> /etc/NetworkManager/conf.d/dhcp-client.conf
+	*	1674719990	0
+	"	2	8
+	^	2	14
+	.	2	8
+	+	2	8
+
 > /usr/bin/zotero
 	*	1674279495	0
 	"	13	0
@@ -1400,10 +1888,6 @@ $
 > ~/file
 	*	1674279485	0
 	"	1	0
-
-> ~/.config/scripts/makepkg.sh
-	*	1674047484	0
-	"	34	0
 
 > /etc/makepkg.conf
 	*	1674047482	0
@@ -1476,20 +1960,6 @@ $
 	*	1674033844	0
 	"	59	0
 
-> /etc/fstab
-	*	1674033733	0
-	"	20	86
-	^	20	87
-	.	20	86
-	+	20	86
-
-> /etc/sysctl.d/40-hugepage.conf
-	*	1674033549	0
-	"	1	21
-	^	1	22
-	.	1	21
-	+	1	21
-
 > /etc/tlp.
 	*	1673931761	0
 	"	1	0
@@ -1522,188 +1992,3 @@ $
 > /etc/mkinitcpio.
 	*	1673762274	0
 	"	1	0
-
-> ~/etc/etc/pacman.conf
-	*	1673761475	0
-	"	32	0
-
-> /etc/pacman.d/hooks/nvidia.hook
-	*	1673761061	0
-	"	1	0
-
-> /etc/pacman.d/mirrorlist
-	*	1673761054	0
-	"	1	0
-	^	14	1
-	.	15	0
-	+	11	0
-	+	12	0
-	+	11	44
-	+	12	34
-	+	13	27
-	+	15	0
-
-> /etc/gdm/PostSession/Default
-	*	1673760910	0
-	"	3	0
-	.	4	0
-	+	4	0
-
-> /etc/gdm/PostLogin/Default.sample
-	*	1673760886	0
-	"	1	0
-
-> /etc/default/grub
-	*	1673760120	0
-	"	7	24
-	^	7	40
-	.	7	39
-	+	7	39
-
-> /usr/share/zsh/functions/Misc/mere
-	*	1673690758	0
-	"	89	0
-
-> /usr/share/zsh/functions/Misc/run-help
-	*	1673690683	0
-	"	75	3
-
-> ~/.config/scripts/mv2trash.sh
-	*	1673690173	0
-	"	101	0
-
-> ~/.config/zsh/functions/gh
-	*	1673620796	0
-	"	1	5
-	.	1	5
-	+	1	5
-
-> ~/.config/zsh/functions/swc
-	*	1673620786	0
-	"	19	0
-
-> /usr/share/zsh/functions/Math/zmathfunc
-	*	1673620745	0
-	"	4	3
-
-> /usr/share/zsh/functions/Zftp/zfdir
-	*	1673620647	0
-	"	101	0
-
-> /usr/share/zsh/functions/Zftp/zfcd
-	*	1673620626	0
-	"	58	0
-
-> ~/.config/scripts/recover.sh
-	*	1673620576	0
-	"	61	0
-
-> ~/.config/zsh/functions/cheat
-	*	1673620538	0
-	"	22	79
-	^	22	80
-	.	22	79
-	+	1	0
-	+	2	19
-	+	3	27
-	+	4	10
-	+	6	0
-	+	7	0
-	+	7	23
-	+	27	0
-	+	8	15
-	+	9	20
-	+	15	19
-	+	25	0
-	+	26	8
-	+	14	11
-	+	15	18
-	+	14	0
-	+	10	14
-	+	11	78
-	+	12	14
-	+	13	14
-	+	15	17
-	+	16	14
-	+	17	0
-	+	16	73
-	+	18	0
-	+	17	118
-	+	22	47
-	+	23	73
-	+	10	0
-	+	16	0
-	+	22	18
-	+	23	19
-	+	21	19
-	+	17	0
-	+	22	79
-
-> ~/.zshrc
-	*	1673620168	0
-	"	8	20
-	^	8	21
-	.	8	20
-	+	8	20
-
-> ~/.config/scripts/upload.sh
-	*	1673620135	0
-	"	96	0
-
-> ~/.config/scripts/upload
-	*	1673620126	0
-	"	1	0
-
-> ~/.config/scripts/local_forwarding.sh
-	*	1673620118	0
-	"	45	0
-
-> ~/.config/scripts/colors.sh
-	*	1673620055	0
-	"	16	0
-
-> ~/.config/scripts/ffmpeg.txt
-	*	1673619953	0
-	"	2	0
-
-> ~/.config/scripts/cheat.sh
-	*	1673619621	0
-	"	15	0
-	^	15	0
-	.	15	0
-	+	2	0
-	+	15	0
-
-> ~/pics.tar.zst
-	*	1673616701	0
-	"	64	0
-	.	5	0
-	+	5	0
-
-> /usr/share/vim/vim90/macros/less.vim
-	*	1673616684	0
-	"	257	0
-
-> /usr/share/vim/vim90/macros/less.bat
-	*	1673616662	0
-	"	4	0
-
-> /usr/share/vim/vim90/macros/less.sh
-	*	1673616653	0
-	"	23	0
-
-> ~/.config/scripts/trans.sh
-	*	1673614869	0
-	"	24	0
-
-> ~/test.c
-	*	1673614689	0
-	"	1	0
-	^	1	0
-
-> ~/.vim/config/1_init/10_opts.vim
-	*	1673614618	0
-	"	87	14
-	^	87	22
-	.	87	43
-	+	87	43
