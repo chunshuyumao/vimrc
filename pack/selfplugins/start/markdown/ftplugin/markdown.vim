@@ -1,19 +1,19 @@
-if exists('b:did_ftplugin') | finish | endif
-let b:did_ftplugin = v:true
+vim9script
 
-let b:CheckTab = {->
-      \ search('<++>', 'ncz', line('.') + 3) != 0 ?
-      \ "\<Esc>/<++>\<CR>\:nohlsearch\<CR>c4l" : "\<Tab>"
-      \ }
+import autoload '../autoimport/mdshortcut.vim' as shortcuts
+import autoload '../autoimport/cite.vim' as cite
 
-nnoremap <buffer><silent><expr><Tab> b:CheckTab()
-inoremap <buffer><silent><expr><Tab> b:CheckTab()
+const CheckTab = () => search('<++>', 'ncz', line('.') + 3) != 0 
+        ? "\<Esc>/<++>\<CR>\:nohlsearch\<CR>c4l" 
+        : "\<Tab>"
+
+nnoremap <buffer><silent><expr><Tab> CheckTab()
+inoremap <buffer><silent><expr><Tab> CheckTab()
 
 highlight! def link Conceal Normal
-setlocal foldlevel=99 spell spelllang=en,medical,cjk
+setlocal foldlevel=99
 
-nnoremap <buffer><silent> mh
-      \ :call setline('.', [
+nnoremap <buffer><silent> mh <Cmd>call setline('.', [
       \ '---',
       \ 'title: <++>',
       \ 'author: <++>',
@@ -23,28 +23,32 @@ nnoremap <buffer><silent> mh
       \ '<++>',
       \ ])<CR>
 
-nnoremap <buffer><silent> mp :call mdshortcut#markdown2html_n_preview()<CR>
-nnoremap <buffer><silent> mc :call mdshortcut#close_markdow_preview()<CR>
+nnoremap <buffer><silent> mp <ScriptCmd>shortcuts.Markdown2HTMLNPreview()<CR>
+nnoremap <buffer><silent> mc <ScriptCmd>shortcuts.CloseMarkdowPreview()<CR>
 
-xnoremap <buffer><silent> ml :call mdshortcut#command('link')<CR>
+xnoremap <buffer><silent> ml <ScriptCmd>shortcuts.Command('link')<CR>
 inoremap <buffer><silent> <C-L> [](<++>) <++><Esc>F[a
 
-xnoremap <buffer><silent> mi :call mdshortcut#command('italic')<CR>
+xnoremap <buffer><silent> mi <ScriptCmd>shortcuts.Command('italic')<CR>
 inoremap <buffer><silent> <C-K> ** <++><Esc>F*i
 
-xnoremap <buffer><silent> ms :call mdshortcut#command('emphasize')<CR>
+xnoremap <buffer><silent> ms <ScriptCmd>shortcuts.Command('strong')<CR>
 inoremap <buffer><silent> <C-S> **** <++><Esc>F*hi
 
-nnoremap <buffer><silent> mt :call mdshortcut#insert_table()<CR>
-xnoremap <buffer><silent> mft :call mdshortcut#format_table()<CR>
-command! -buffer -range FmtTbl :<line1>,<line2>call mdshortcut#format_table()
+nnoremap <buffer><silent> mt <ScriptCmd>shortcuts.InsertTable()<CR>
 
-nnoremap <buffer><silent> mg :call mdshortcut#insert_image_from_clip()<CR>
+function FormatTableForLagecy() range
+  call shortcuts.FormatTable(a:firstline, a:lastline)
+endfunction
+xnoremap <buffer><silent> mft :call <SID>FormatTableForLagecy()<CR>
+command! -buffer -range FmtTbl call <SID>shortcuts.FormatTable(<line1>, <line2>)
+
+nnoremap <buffer><silent> mg <ScriptCmd>shortcuts.InsertImageFromClip()<CR>
 inoremap <buffer><silent> <C-G> ![](<++>){#fig:<++>} <Enter><++><Esc>kF[a
 
-nnoremap <buffer> mz "=mdshortcut#cite()<CR>p
-inoremap <buffer> <C-Z> <C-R>=mdshortcut#cite()<CR>
+nnoremap <buffer> mz "=<SID>shortcuts.Cite()<CR>p
+inoremap <buffer> <C-Z> <C-R>=<SID>shortcuts.Cite()<CR>
 
-command! -buffer RefreshCite call cite#initial()
-command! -buffer EnableCite call cite#enable_citation()
-command! -buffer DisableCite call cite#disable_citation()
+command! -buffer RefreshCite call <SID>cite.Initial()
+command! -buffer EnableCite call <SID>cite.EnableCitation()
+command! -buffer DisableCite call <SID>cite.DisableCitation()

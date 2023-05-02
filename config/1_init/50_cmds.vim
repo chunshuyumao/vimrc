@@ -74,6 +74,10 @@ command! -nargs=1 -complete=custom,s:date_for_filename
 
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+nnoremap <silent> <Up> g<Up>
+nnoremap <silent> <Down> g<Down>
 
 nnoremap <silent> gj j
 nnoremap <silent> gk k
+nnoremap <silent> g<Up> <Up>
+nnoremap <silent> g<Down> <Down>
