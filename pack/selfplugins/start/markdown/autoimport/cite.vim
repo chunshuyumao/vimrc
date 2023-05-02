@@ -16,7 +16,7 @@ var citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json
 
 var cmpopt: string = null_string
 var citations: list<dict<string>> = null_list
-var cite_timer_id: number = -1
+var cite_act_timer: number = -1
 
 def CreateInfo(_: number, item: dict<any>): dict<string>
 
@@ -37,38 +37,35 @@ enddef
 def Initial(): list<dict<string>>
 
   if citations == null_list
-    citations = readfile(citepath)->join()->json_decode()->map(CreateInfo)
+    citations = readfile(citepath)
+                  ->join()
+                  ->json_decode()
+                  ->map(CreateInfo)
   endif
   return citations
 enddef
 
+
 def Cite(timer: number): void
 
-  const curpos: number = col('.')
-  const curline: number = line('.')
-  const begpos: number = searchpos('[@', 'bnc', curline)[1]
-  const endpos: number = searchpos(']',   'nc', curline)[1]
+  silent! timer_stop(cite_act_timer)
+  cite_act_timer = timer
 
-  if begpos <= curpos && curpos <= endpos
+  var stoppos: number = charcol('.') - 2
+  var startpos: number = stoppos
+  const str: string = getline('.')
+  while str[startpos] =~ '\w'
+    startpos = startpos - 1
+  endwhile
 
-    silent! timer_stop(cite_timer_id)
-    cite_timer_id = timer
-
-    const startpos: number = searchpos('@', 'bnc', curline)[1]
-    const words: list<string> = getline('.')[startpos : (curpos - 2)]
-           ->split()->filter('v:val->len() > 1')
-
-    if words != null_list
-      Initial()->copy()->filter((_, item) => {
-          const wd: string = item->get('word', null_string)
-          const inf: string = item->get('info', null_string)
-          for word in words
-            if wd =~? word || inf =~? word
-              return true
-            endif
-          endfor
-          return false
-      })->complete(startpos + 1)
+  if str[startpos] == '@'
+    const words: string = str[startpos + 1 : stoppos]
+    if words->len() >= 3
+      const at: number = searchpos('@', 'nbc', line('.'))[1]
+      Initial()->copy()->filter((_, item) => 
+        item->get('word', null_string) =~? words ||
+        item->get('info', null_string) =~? words
+      )->complete(at + 1)
     endif
   endif
 enddef
@@ -77,12 +74,12 @@ export def EnableCitation(): void
 
   augroup CiteComplete
     autocmd!
-    autocmd CursorMovedI <buffer> call timer_start(0, 'Cite')
+    autocmd CursorMovedI <buffer> call timer_start(1, 'Cite')
     inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   augroup End
 
   cmpopt = &completeopt
-  setlocal completeopt=menu,noselect,popup
+  setlocal completeopt=menu,noselect
 
 enddef
 

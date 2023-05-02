@@ -64,17 +64,20 @@ export def InsertTable(): void
 
   inputsave()
   const XY: list<number> = input('Enter table X×Y(e.g 3,4): ')
-                            ->split(',')->map('str2nr(v:val)')
+                            ->split(',')
+                            ->map('str2nr(v:val)')
   inputrestore()
 
   if XY->empty()
     return
   endif
 
-  append('.', [repeat('|<++>', XY[0]) .. '|']->repeat(XY[1])
-                ->insert(repeat('|:----:', XY[0]) .. '|', 1)
-                ->add('')
-                ->add(': <++> {#tbl:<++>}'))
+  append('.',
+    [repeat('|<++>', XY[0]) .. '|']
+      ->repeat(XY[1])
+      ->insert(repeat('|:----:', XY[0]) .. '|', 1)
+      ->add('')
+      ->add(': <++> {#tbl:<++>}'))
 enddef
 
 export def FormatTable(firstline: number, lastline: number): void
@@ -101,7 +104,7 @@ export def FormatTable(firstline: number, lastline: number): void
       const n_space: number = width - str->strwidth()
       const padding: string = repeat(' ', float2nr(n_space / 2))
 
-      lines[i][j] = printf(' %s%s%s%s ', padding, str, padding, space % 2 ? ' ' : '')
+      lines[i][j] = printf(' %s%s%s%s ', padding, str, padding, n_space % 2 ? ' ' : '')
     endfor
     tbl[i] = lines[i]->join('|')->printf('|%s|')
   endfor
@@ -181,7 +184,7 @@ enddef
 
 
 export def Cite(): string
-  " pick a format based on the filetype (customize at will)
+  # pick a format based on the filetype (customize at will)
   const format: string = &filetype =~ '.*tex' ? 'citep' : 'pandoc'
   const api_call: string = 'http://localhost:23119/better-bibtex/cayw?format=' .. format .. '&brackets=1'
   const ref: string = system('curl -qs ' .. shellescape(api_call))
