@@ -10,7 +10,7 @@ nnoremap <buffer><silent><expr><Tab> b:CheckTab()
 inoremap <buffer><silent><expr><Tab> b:CheckTab()
 
 highlight! def link Conceal Normal
-setlocal foldlevel=99 spell spelllang=en,medical,cjk
+setlocal foldlevel=99
 
 nnoremap <buffer><silent> mh
       \ :call setline('.', [

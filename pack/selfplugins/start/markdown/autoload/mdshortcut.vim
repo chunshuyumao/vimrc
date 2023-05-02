@@ -74,7 +74,19 @@ function! mdshortcut#insert_table() abort
 
 endfunction
 
+"function s:formated_tbl() range
+"
+"  let l:lines = getline(a:firstline, a:lastline)
+"  let l:lines_arr = l:lines->map('v:val->split("|")->map("v:val->trim()")')
+"
+"  let l:width_arr = l:lines_arr[0]->len()->range()->mapnew('v:val->strwidth()')
+"
+"
+"endfunction
+
+
 function! mdshortcut#format_table() range
+  let l:start = strftime('%s')
   call setline(a:firstline, { lines -> { widths -> lines
         \ ->map({_, row -> printf("|%s|", row->map({_, txt -> {
         \  width -> txt=~'[:-]\{3,}'?printf(" %s%s%s ", txt[0],
@@ -93,6 +105,7 @@ function! mdshortcut#format_table() range
         \   ->map('v:val->split("|")->map("v:val->trim()")')
         \   ->filter('v:val->len() > 1'))
         \ )
+  echom (strftime('%s') - start)
 endfunction
 
 function! mdshortcut#command(action) abort

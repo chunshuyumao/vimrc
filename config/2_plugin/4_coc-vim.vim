@@ -8,7 +8,7 @@
 " =========================================================
 
 " TextEdit might fail if hidden is not set.
-set hidden
+"set hidden
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
