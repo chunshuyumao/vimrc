@@ -74,7 +74,7 @@ export def EnableCitation(): void
 
   augroup CiteComplete
     autocmd!
-    autocmd CursorMovedI <buffer> call timer_start(1, 'Cite')
+    autocmd CursorMovedI <buffer> call timer_start(500, 'Cite')
     inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   augroup End
 

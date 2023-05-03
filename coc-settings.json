@@ -1,4 +1,5 @@
 {
+        "Lua.telemetry.enable": false,
         "sumneko-lua.checkUpdate": false,
 
         "vimlsp.suggest.fromVimruntime": true,

@@ -1,69 +1,68 @@
-" =========================================================
-"
-" 自动添加头标注
-" 
-" Author: chunshuyumao
-" Created: 2022-07-10 19:29:29 Sunday
-" Modified:2022-10-12 21:19:07 Wednesday
-"
-" =========================================================
+vim9script
+# =========================================================
+#
+# 自动添加头标注
+# 
+# Author: chunshuyumao
+# Created: 2022-07-10 19:29:29 Sunday
+# Modified:2022-10-12 21:19:07 Wednesday
+#
+# =========================================================
 
 
-" ---------------------------------------------------------
-" 自动添加头标注
-" ---------------------------------------------------------
+# ---------------------------------------------------------
+# 自动添加头标注
+# ---------------------------------------------------------
 
-let s:header={
-  \  'r':      { 'shabang': 'Rscript'                   },
-  \  'sh':     { 'shabang': 'bash'                      },
-  \  'zsh':    { 'shabang': 'zsh'                       },
-  \  'vim':    {                       'commentor': '"' },
-  \  'lua':    { 'shabang': 'lua',     'commentor': '--'},
-  \  'python': { 'shabang': 'python'                    },
-  \}
-let s:date_fmt = '%Y-%m-%d %H:%M:%S %A'
+var header: dict<dict<string>> = {
+    'r':      { 'shabang': 'Rscript'                   },
+    'sh':     { 'shabang': 'bash'                      },
+    'zsh':    { 'shabang': 'zsh'                       },
+    'vim':    {                       'commentor': '"' },
+    'lua':    { 'shabang': 'lua',     'commentor': '--'},
+    'python': { 'shabang': 'python'                    }, }
 
-" 定义一个函数，加注标头
-" commentor 默认是 `#`
-function! s:header_title_info()
+const date_fmt: string = '%Y-%m-%d %H:%M:%S %A'
 
-  if !exists('s:header[&filetype]')
+# 定义一个函数，加注标头
+# commentor 默认是 `#`
+def HeaderTitleInfo(): void
+
+  const file: dict<string> = header->get(&filetype, null_dict)
+  if file == null_dict
     return
   endif
 
-  let l:file = s:header[&filetype]
-
-  let l:lineno = 1
-  if exists('l:file["shabang"]')
-    call setline(l:lineno, l:file->get('shabang')->printf("#!/bin/env %s"))
-    let l:lineno += 1
+  var lineno: number = 1
+  const shabang: string = file->get('shabang', null_string)
+  if shabang != null_string
+    setline(lineno, shabang->printf("#!/bin/env %s"))
+    lineno = lineno + 1
   endif
 
-  let l:fmt_time = s:date_fmt->strftime()
-  " Get commentor of script file. If not exist, use `#` default.
-  let l:cmtr = l:file->get('commentor', '#')
-  let l:border = l:cmtr->printf("%s %s", repeat('=', 56))
+  const fmt_time: string = date_fmt->strftime()
+  # Get commentor of script file. If not exist, use `#` default.
+  const cmtr: string = file->get('commentor', '#')
+  const border: string = cmtr->printf("%s %s", repeat('=', 56))
+ 
+  setline(lineno, [
+          cmtr->printf("%s encoding: %s", file->get('encoding', 'utf-8')),
+          border,
+          cmtr, 
+          cmtr->printf("%s File: %s", expand('%:t')),
+          cmtr,
+          cmtr->printf("%s Author: %s", $USER),
+          cmtr->printf("%s Created: %s", fmt_time),
+          cmtr->printf("%s Modified: %s", fmt_time),
+          cmtr,
+          cmtr->printf("%s Description: "),
+          cmtr,
+          border,
+          '',
+          ])
 
-  call setline(l:lineno, [
-        \ l:cmtr->printf("%s encoding: %s", l:file->get('encoding', 'utf-8')),
-        \ l:border,
-        \ l:cmtr, 
-        \ l:cmtr->printf("%s File: %s", expand('%:t')),
-        \ l:cmtr,
-        \ l:cmtr->printf("%s Author: %s", $USER),
-        \ l:cmtr->printf("%s Created: %s", l:fmt_time),
-        \ l:cmtr->printf("%s Modified: %s", l:fmt_time),
-        \ l:cmtr,
-        \ l:cmtr->printf("%s Description: "),
-        \ l:cmtr,
-        \ l:border,
-        \ '',
-        \ ])
-
-  " 鼠标移到最后一行
+  # 鼠标移到最后一行
   normal! G
-endfunction
+enddef
 
-" 创建新文件时自动添加标头
-autocmd! BufNewFile *.* call <SID>header_title_info()
-command! -nargs=0 InsertHeader call <SID>header_title_info()
+command! -nargs=0 InsertHeader call HeaderTitleInfo()
