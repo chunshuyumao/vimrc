@@ -97,7 +97,7 @@ export def FormatTable(firstline: number, lastline: number): void
       const width: number = max_width[j]
 
       if str =~ '[:-]\{3,}'
-        lines[i][j] = printf(' %s%s%s ', str[0], repeat('-', width - 2), str[-1 : ])
+        lines[i][j] = printf(' %s%s%s ', str[0], repeat('-', width - 2), str[-1])
         continue
       endif
 
@@ -146,6 +146,7 @@ export def Command(action: string): void
   GetComandTbl()->get(action, () => {
     @a = rgs_a
   })()
+  @a = rgs_a
 enddef
 
 

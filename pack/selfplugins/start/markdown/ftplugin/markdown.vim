@@ -12,6 +12,7 @@ inoremap <buffer><silent><expr><Tab> CheckTab()
 
 highlight! def link Conceal Normal
 setlocal foldlevel=99
+setlocal colorcolumn=79
 
 nnoremap <buffer><silent> mh <Cmd>call setline('.', [
       \ '---',
