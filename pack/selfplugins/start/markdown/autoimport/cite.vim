@@ -37,10 +37,8 @@ enddef
 def Initial(): list<dict<string>>
 
   if citations == null_list
-    citations = readfile(citepath)
-                  ->join()
-                  ->json_decode()
-                  ->map(CreateInfo)
+    citations = readfile(citepath)->join()
+      ->json_decode()->map(CreateInfo)
   endif
   return citations
 enddef
@@ -52,7 +50,7 @@ def Cite(timer: number): void
   cite_act_timer = timer
 
   # Get current position column index of character
-  var stoppos: number = charcol('.') - 2
+  const stoppos: number = charcol('.') - 2
   if stoppos <= 0 | return | endif
 
   var startpos: number = stoppos
@@ -81,7 +79,7 @@ export def EnableCitation(): void
   augroup End
 
   cmpopt = &completeopt
-  setlocal completeopt=menu,noinsert
+  setlocal completeopt=menu,noinsert,popup
 
 enddef
 

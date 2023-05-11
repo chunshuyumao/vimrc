@@ -49,7 +49,7 @@ set report=0
 set laststatus=2
 
 # 如果太长，从这里截断
-set statusline=%<\ 
+set statusline=\ %<
 # 文件全路径
 set statusline+=%F
 # 显示 修改、只读、帮助、预览 的标识

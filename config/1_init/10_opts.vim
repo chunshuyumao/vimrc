@@ -28,11 +28,16 @@ set iskeyword=@,_,-,48-57,192-255
 
 # 设置 Tab 键和多空格的展示方式
 set list
-set listchars=tab:·–,multispace:·
+set listchars=tab:·–,space:·,
 
 # 设置延迟重绘
 #set lazyredraw
 
+set autochdir
+
+set wildmenu
+
+set showcmd
 
 # ---------------------------------------------------------
 # 颜色配置
@@ -125,4 +130,3 @@ g:terminal_ansi_colors = [
        '#839496', '#6C71C4', '#93A1A1', '#FDF6E3',
        ]
 
-set autochdir
