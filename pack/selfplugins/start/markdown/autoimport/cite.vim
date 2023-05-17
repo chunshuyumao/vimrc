@@ -12,7 +12,7 @@ vim9script
 #
 # ========================================================
 
-var citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json'))
+const citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json'))
 
 var cmpopt: string = null_string
 var citations: list<dict<string>> = null_list
