@@ -1,678 +1,611 @@
-" Insert or delete brackets, parens, quotes in pairs.
-" Maintainer:	JiangMiao <jiangfriend@gmail.com>
-" Contributor: camthompson
-" Last Change:  2019-02-02
-" Version: 2.0.0
-" Homepage: http://www.vim.org/scripts/script.php?script_id=3599
-" Repository: https://github.com/jiangmiao/auto-pairs
-" License: MIT
+vim9script
+# Insert or delete brackets, parens, quotes in pairs .. 
+# Maintainer:	JiangMiao <jiangfriend@gmail .. com>
+# Contributor: camthompson
+# Last Change:  2019-02-02
+# Version: 2 .. 0 .. 0
+# Homepage: http://www .. vim .. org/scripts/script .. php?script_id=3599
+# Repository: http//github .. com/jiangmiao/auto-pairs
+# License: MIT
 
-if exists('g:AutoPairsLoaded') || &cp
-  finish
-end
-let g:AutoPairsLoaded = 1
+const AutoPairs: dict<string> = get(g:, 'AutoPairs', {
+  '(': ')',
+  '[': ']',
+  '{': '}',
+  "'": "'",
+  '"': '"',
+  "`": "`",
+  '```': '```',
+  '"""': '"""',
+  "'''": "'''",
+})
 
-if !exists('g:AutoPairs')
-  let g:AutoPairs = {
-        \ '(':')',
-        \ '[':']',
-        \ '{':'}',
-        \ "'":"'",
-        \ '"':'"',
-        \ "`":"`",
-        \ '```':'```',
-        \ '"""':'"""',
-        \ "'''":"'''",
-        \ }
-end
+#var b:autopairs_defaultpairs: dict<string> = null_dict
+# default pairs base on filetype
+def AutoPairsDefaultPairs(): dict<string>
+  if !exists('b:autopairs_defaultpairs')
+    b:autopairs_defaultpairs = AutoPairs->copy()
+    const allPairs: dict<dict<string>> = {
+          'vim': {'\v^\s*\zs"': ''},
+          'rust': {'\w\zs<': '>', '&\zs''': ''},
+          'php': {'<?': '?>//k]', '<?php': '?>//k]'},
+    }
+    for [filetype, pairs] in allPairs->items()
+      if &filetype == filetype
+        for [open, close] in pairs->items()
+          b:autopairs_defaultpairs[open] = close
+        endfor
+      endif
+    endfor
+  endif
+  return b:autopairs_defaultpairs
+enddef
 
-" default pairs base on filetype
-func! AutoPairsDefaultPairs()
-  if exists('b:autopairs_defaultpairs')
-    return b:autopairs_defaultpairs
-  end
-  let r = copy(g:AutoPairs)
-  let allPairs = {
-        \ 'vim': {'\v^\s*\zs"': ''},
-        \ 'rust': {'\w\zs<': '>', '&\zs''': ''},
-        \ 'php': {'<?': '?>//k]', '<?php': '?>//k]'}
-        \ }
-  for [filetype, pairs] in items(allPairs)
-    if &filetype == filetype
-      for [open, close] in items(pairs)
-        let r[open] = close
-      endfor
-    end
-  endfor
-  let b:autopairs_defaultpairs = r
-  return r
-endf
+const AutoPairsMapBS: bool = get(g:, 'AutoPairsMapBS', true)
+# Map <C-h> as the same BS
+const AutoPairsMapCh: bool = get(g:, 'AutoPairsMapBS', true)
+const AutoPairsMapCR: bool = get(g:, 'AutoPairsMapCR', true)
+const AutoPairsWildClosedPair: string = get(g:, "AutoPairsWildClosedPair", '')
+const AutoPairsMapSpace: bool = get(g:, 'AutoPairsMapSpace', true)
+const AutoPairsCenterLine: bool = get(g:, 'AutoPairsCenterLine', true)
+const AutoPairsShortcutToggle: string = get(g:, 'AutoPairsShortcutToggle', '<M-p>')
+const AutoPairsShortcutFastWrap: string = get(g:, 'AutoPairsShortcutFastWrap', '<M-e>')
+const AutoPairsMoveCharacter: string = get(g:, 'AutoPairsMoveCharacter', "()[]{}\"'")
+const AutoPairsShortcutJump: string = get(g:, 'AutoPairsShortcutJump', '<M-j>')
 
-if !exists('g:AutoPairsMapBS')
-  let g:AutoPairsMapBS = 1
-end
+# Fly mode will for closed pair to jump to closed pair instead of insert .. 
+# also support AutoPairsBackInsert to insert pairs where jumped .. 
+const AutoPairsFlyMode: bool = get(g:, 'AutoPairsFlyMode', false)
 
-" Map <C-h> as the same BS
-if !exists('g:AutoPairsMapCh')
-  let g:AutoPairsMapCh = 1
-end
+# When skipping the closed pair, look at the current and
+# next line as well .. 
+const AutoPairsMultilineClose: bool = get(g:, 'AutoPairsMultilineClose', true)
 
-if !exists('g:AutoPairsMapCR')
-  let g:AutoPairsMapCR = 1
-end
+# Work with Fly Mode, insert pair where jumped
+const AutoPairsShortcutBackInsert: string = get(g:, 'AutoPairsShortcutBackInsert', '<M-b>')
 
-if !exists('g:AutoPairsWildClosedPair')
-  let g:AutoPairsWildClosedPair = ''
-end
+const AutoPairsSmartQuotes: bool = get(g:, 'AutoPairsSmartQuotes', true)
 
-if !exists('g:AutoPairsMapSpace')
-  let g:AutoPairsMapSpace = 1
-end
+# 7 .. 4 .. 849 support <C-G>U to avoid breaking ' .. '
+# Issue talk: http//github .. com/jiangmiao/auto-pairs/issues/3
+# Vim note: http//github .. com/vim/vim/releases/tag/v7 .. 4 .. 849
+const Go: string = (v:version > 704 || v:version == 704 && has("patch849")) ? "\<C-G>U" : ''
 
-if !exists('g:AutoPairsCenterLine')
-  let g:AutoPairsCenterLine = 1
-end
+const Left: string = Go .. "\<LEFT>"
+const Right: string = Go .. "\<RIGHT>"
 
-if !exists('g:AutoPairsShortcutToggle')
-  let g:AutoPairsShortcutToggle = '<M-p>'
-end
+# unicode len
+const Ulen = (s: string): number => s->split('\zs')->len()
+const Left_fn = (s: string): string => Left->repeat(Ulen(s))
+const Right_fn = (s: string): string => Right->repeat(Ulen(s))
+const Delete = (s: string): string => "\<DEL>"->repeat(Ulen(s))
+const Backspace = (s: string): string => "\<Backspace>"->repeat(Ulen(s))
 
-if !exists('g:AutoPairsShortcutFastWrap')
-  let g:AutoPairsShortcutFastWrap = '<M-e>'
-end
 
-if !exists('g:AutoPairsMoveCharacter')
-  let g:AutoPairsMoveCharacter = "()[]{}\"'"
-end
-
-if !exists('g:AutoPairsShortcutJump')
-  let g:AutoPairsShortcutJump = '<M-n>'
-endif
-
-" Fly mode will for closed pair to jump to closed pair instead of insert.
-" also support AutoPairsBackInsert to insert pairs where jumped.
-if !exists('g:AutoPairsFlyMode')
-  let g:AutoPairsFlyMode = 0
-endif
-
-" When skipping the closed pair, look at the current and
-" next line as well.
-if !exists('g:AutoPairsMultilineClose')
-  let g:AutoPairsMultilineClose = 1
-endif
-
-" Work with Fly Mode, insert pair where jumped
-if !exists('g:AutoPairsShortcutBackInsert')
-  let g:AutoPairsShortcutBackInsert = '<M-b>'
-endif
-
-if !exists('g:AutoPairsSmartQuotes')
-  let g:AutoPairsSmartQuotes = 1
-endif
-
-" 7.4.849 support <C-G>U to avoid breaking '.'
-" Issue talk: https://github.com/jiangmiao/auto-pairs/issues/3
-" Vim note: https://github.com/vim/vim/releases/tag/v7.4.849
-if v:version > 704 || v:version == 704 && has("patch849")
-  let s:Go = "\<C-G>U"
-else
-  let s:Go = ""
-endif
-
-let s:Left = s:Go."\<LEFT>"
-let s:Right = s:Go."\<RIGHT>"
-
-" unicode len
-func! s:ulen(s)
-  return len(split(a:s, '\zs'))
-endf
-
-func! s:left(s)
-  return repeat(s:Left, s:ulen(a:s))
-endf
-
-func! s:right(s)
-  return repeat(s:Right, s:ulen(a:s))
-endf
-
-func! s:delete(s)
-  return repeat("\<DEL>", s:ulen(a:s))
-endf
-
-func! s:backspace(s)
-  return repeat("\<BS>", s:ulen(a:s))
-endf
-
-func! s:getline()
-  let line = getline('.')
-  let pos = col('.') - 1
-  let before = strpart(line, 0, pos)
-  let after = strpart(line, pos)
-  let afterline = after
-  if g:AutoPairsMultilineClose
-    let n = line('$')
-    let i = line('.')+1
-    while i <= n
-      let line = getline(i)
-      let after = after.' '.line
+def Getline(): list<string>
+  var line: string = getline('.')
+  const pos: number = col('.') - 1
+  const before: string = line->strpart(0, pos)
+  var after: string = line->strpart(pos)
+  const afterline: string = after
+  if AutoPairsMultilineClose
+    for i in range(line('.') + 1, line('$'))
+      line = getline(i)
+      after = after .. ' ' .. line
       if !(line =~ '\v^\s*$')
         break
-      end
-      let i = i+1
-    endwhile
-  end
-  return [before, after, afterline]
-endf
-
-" split text to two part
-" returns [orig, text_before_open, open]
-func! s:matchend(text, open)
-    let m = matchstr(a:text, '\V'.a:open.'\v$')
-    if m == ""
-      return []
-    end
-    return [a:text, strpart(a:text, 0, len(a:text)-len(m)), m]
-endf
-
-" returns [orig, close, text_after_close]
-func! s:matchbegin(text, close)
-    let m = matchstr(a:text, '^\V'.a:close)
-    if m == ""
-      return []
-    end
-    return [a:text, m, strpart(a:text, len(m), len(a:text)-len(m))]
-endf
-
-" add or delete pairs base on g:AutoPairs
-" AutoPairsDefine(addPairs:dict[, removeOpenPairList:list])
-"
-" eg:
-"   au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
-"   add <!-- --> pair and remove '{' for html file
-func! AutoPairsDefine(pairs, ...)
-  let r = AutoPairsDefaultPairs()
-  if a:0 > 0
-    for open in a:1
-      unlet r[open]
+      endif
     endfor
-  end
-  for [open, close] in items(a:pairs)
-    let r[open] = close
+  endif
+  return [before, after, afterline]
+enddef
+
+# split text to two part
+# returns [orig, text_before_open, open]
+def Matchend(text: string, open: string): list<string>
+    const m: string = text->matchstr('\V' .. open .. '\v$')
+    return m->empty()
+      ? []
+      : [text, text->strpart(0, text->len() - m->len()), m]
+enddef
+
+# returns [orig, close, text_after_close]
+def Matchbegin(text: string, close: string): list<string>
+    const m: string = text->matchstr('^\V' .. close)
+    return m->empty()
+      ? []
+      : [text, m, text->strpart(m->len(), text->len() - m->len())]
+enddef
+
+# add or delete pairs base on AutoPairs
+# AutoPairsDefine(addPairdict[, removeOpenPairList:list])
+# e
+#   au FileType html var b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
+#   add <!-- --> pair and remove '{' for html file
+def g:AutoPairsDefine(pairs: dict<string>, rm: list<string>): dict<string>
+  var r = AutoPairsDefaultPairs()
+  for open in rm
+    r[open] = null_string
+  endfor
+  for [open, close] in pairs->items()
+    r[open] = close
   endfor
   return r
-endf
+enddef
 
-func! AutoPairsInsert(key)
+def g:AutoPairsInsert(key: string): string
   if !b:autopairs_enabled
-    return a:key
-  end
+    return key
+  endif
 
-  let b:autopairs_saved_pair = [a:key, getpos('.')]
+  b:autopairs_saved_pair = [key, getpos('.')]
 
-  let [before, after, afterline] = s:getline()
+  var [before, after, afterline] = Getline()
 
-  " Ignore auto close if prev character is \
-  if before[-1:-1] == '\'
-    return a:key
-  end
+  # Ignore auto close if prev character is \
+  if before[-1] == '\'
+    return key
+  endif
 
-  " check open pairs
-  for [open, close, opt] in b:AutoPairsList
-    let ms = s:matchend(before.a:key, open)
-    let m = matchstr(afterline, '^\v\s*\zs\V'.close)
+  # check open pairs
+  for [open, close, _] in b:AutoPairsList
+    var ms: list<string> = Matchend(before .. key, open)
+    var m: string = afterline->matchstr('^\v\s*\zs\V' .. close)
     if len(ms) > 0
-      " process the open pair
+      # process the open pair
       
-      " remove inserted pair
-      " eg: if the pairs include < > and  <!-- --> 
-      " when <!-- is detected the inserted pair < > should be clean up 
-      let target = ms[1]
-      let openPair = ms[2]
-      if len(openPair) == 1 && m == openPair
+      # remove inserted pair
+      # e if the pairs include < > and  <!-- --> 
+      # when <!-- is detected the inserted pair < > should be clean up 
+      const target: string = ms[1]
+      const openPair: string = ms[2]
+      if openPair->len() == 1 && m == openPair
         break
-      end
-      let bs = ''
-      let del = ''
-      while len(before) > len(target)
-        let found = 0
-        " delete pair
-        for [o, c, opt] in b:AutoPairsList
-          let os = s:matchend(before, o)
-          if len(os) && len(os[1]) < len(target)
-            " any text before openPair should not be deleted
+      endif
+      var bs: string
+      var del: string
+      while before->len() > target->len()
+        var found: bool = false
+        # delete pair
+        for [o, c, opts] in b:AutoPairsList
+          const os: list<string> = Matchend(before, o)
+          if os->len() && os[1]->len() < target->len()
+            # any text before openPair should not be deleted
             continue
-          end
-          let cs = s:matchbegin(afterline, c)
-          if len(os) && len(cs)
-            let found = 1
-            let before = os[1]
-            let afterline = cs[2]
-            let bs = bs.s:backspace(os[2])
-            let del = del.s:delete(cs[1])
+          endif
+          const cs: list<string> = Matchbegin(afterline, c)
+          if os->len() && cs->len()
+            found = true
+            before = os[1]
+            afterline = cs[2]
+            bs = bs .. Backspace(os[2])
+            del = del .. Delete(cs[1])
             break
-          end
+          endif
         endfor
         if !found
-          " delete charactor
-          let ms = s:matchend(before, '\v.')
-          if len(ms)
-            let before = ms[1]
-            let bs = bs.s:backspace(ms[2])
-          end
-        end
+          # delete charactor
+          ms = Matchend(before, '\v.')
+          if ms->len()
+            before = ms[1]
+            bs = bs .. Backspace(ms[2])
+          endif
+        endif
       endwhile
-      return bs.del.openPair.close.s:left(close)
-    end
+      return bs .. del .. openPair .. close .. Left_fn(close)
+    endif
   endfor
 
-  " check close pairs
+  # check close pairs
   for [open, close, opt] in b:AutoPairsList
-    if close == ''
+    if close->empty()
       continue
-    end
-    if a:key == g:AutoPairsWildClosedPair || opt['mapclose'] && opt['key'] == a:key
-      " the close pair is in the same line
-      let m = matchstr(afterline, '^\v\s*\V'.close)
-      if m != ''
-        if before =~ '\V'.open.'\v\s*$' && m[0] =~ '\v\s'
-          " remove the space we inserted if the text in pairs is blank
-          return "\<DEL>".s:right(m[1:])
-        else
-          return s:right(m)
-        end
-      end
-      let m = matchstr(after, '^\v\s*\zs\V'.close)
-      if m != ''
-        if a:key == g:AutoPairsWildClosedPair || opt['multiline']
+    endif
+    if key == AutoPairsWildClosedPair || opt['mapclose'] && opt['key'] == key
+      # the close pair is in the same line
+      var m: string = afterline->matchstr('^\v\s*\V' .. close)
+      if !m->empty()
+        if before =~ '\V' .. open .. '\v\s*$' && m[0] =~ '\v\s'
+          # remove the space we inserted if the text in pairs is blank
+          return "\<DEL>" .. Right_fn(m[1 : ])
+        endif
+        return Right_fn(m)
+      endif
+      m = after->matchstr('^\v\s*\zs\V' .. close)
+      if !m->empty()
+        if key == AutoPairsWildClosedPair || opt['multiline']
           if b:autopairs_return_pos == line('.') && getline('.') =~ '\v^\s*$'
             normal! ddk$
-          end
-          call search(m, 'We')
+          endif
+          search(m, 'We')
           return "\<Right>"
-        else
-          break
-        end
-      end
-    end
+        endif
+        break
+      endif
+    endif
   endfor
 
 
-  " Fly Mode, and the key is closed-pairs, search closed-pair and jump
-  if g:AutoPairsFlyMode &&  a:key =~ '\v[\}\]\)]'
-    if search(a:key, 'We')
+  # Fly Mode, and the key is closed-pairs, search closed-pair and jump
+  if AutoPairsFlyMode && key =~ '\v[\}\]\)]'
+    if search(key, 'We')
       return "\<Right>"
     endif
   endif
 
-  return a:key
-endf
+  return key
+enddef
 
-func! AutoPairsDelete()
+def g:AutoPairsDelete(): string
   if !b:autopairs_enabled
     return "\<BS>"
-  end
+  endif
 
-  let [before, after, ig] = s:getline()
+  const [before, after, ig] = Getline()
   for [open, close, opt] in b:AutoPairsList
-    let b = matchstr(before, '\V'.open.'\v\s?$')
-    let a = matchstr(after, '^\v\s*\V'.close)
-    if b != '' && a != ''
-      if b[-1:-1] == ' '
-        if a[0] == ' '
-          return "\<BS>\<DELETE>"
-        else
-          return "\<BS>"
-        end
-      end
-      return s:backspace(b).s:delete(a)
-    end
+    const b: string = before->matchstr('\V' .. open .. '\v\s?$')
+    const a: string = after->matchstr('^\v\s*\V' .. close)
+    if !b->empty() && !a->empty()
+      if b[-1] == ' '
+        return a[0] == ' ' ? "\<BS>\<DELETE>" : "\<BS>"
+      endif
+      return Backspace(b) .. Delete(a)
+    endif
   endfor
 
   return "\<BS>"
-  " delete the pair foo[]| <BS> to foo
-  for [open, close, opt] in b:AutoPairsList
-    let m = s:matchend(before, '\V'.open.'\v\s*'.'\V'.close.'\v$')
-    if len(m) > 0
-      return s:backspace(m[2])
-    end
-  endfor
-  return "\<BS>"
-endf
+enddef
 
 
-" Fast wrap the word in brackets
-func! AutoPairsFastWrap()
-  let c = @"
+# Fast wrap the word in brackets
+def AutoPairsFastWrap(): string
+  const c: string = @"
   normal! x
-  let [before, after, ig] = s:getline()
+  const [before, after, ig] = Getline()
   if after[0] =~ '\v[\{\[\(\<]'
     normal! %
     normal! p
   else
     for [open, close, opt] in b:AutoPairsList
-      if close == ''
+      if close->empty()
         continue
-      end
-      if after =~ '^\s*\V'.open
-        call search(close, 'We')
+      endif
+      if after =~ '^\s*\V' .. open
+        search(close, 'We')
         normal! p
-        let @" = c
+        @" = c
         return ""
-      end
+      endif
     endfor
-    if after[1:1] =~ '\v\w'
+    if after[1] =~ '\v\w'
       normal! e
       normal! p
     else
       normal! p
-    end
-  end
-  let @" = c
+    endif
+  endif
+  @" = c
   return ""
-endf
+enddef
 
-func! AutoPairsJump()
-  call search('["\]'')}]','W')
-endf
+const g:AutoPairsJump = (): number => search('["\]'')}]', 'W')
 
-func! AutoPairsMoveCharacter(key)
-  let c = getline(".")[col(".")-1]
-  let escaped_key = substitute(a:key, "'", "''", 'g')
-  return "\<DEL>\<ESC>:call search("."'".escaped_key."'".")\<CR>a".c."\<LEFT>"
-endf
+def g:AutoPairsMoveCharacterF(key: string): string
+  const escaped_key: string = key->substitute("'", "''", 'g')
+  return printf("\<DEL>\<ESC>:call search('%s')\<CR>a%s\<LEFT>",
+      escaped_key,
+      getline('.')[col('.') - 1]
+  )
+enddef
 
-func! AutoPairsBackInsert()
-  let pair = b:autopairs_saved_pair[0]
-  let pos  = b:autopairs_saved_pair[1]
-  call setpos('.', pos)
+def g:AutoPairsBackInsert()
+  const pair = b:autopairs_saved_pair[0]
+  const pos: number  = b:autopairs_saved_pair[1]
+  setpos('.', pos)
   return pair
-endf
+enddef
 
-func! AutoPairsReturn()
-  if b:autopairs_enabled == 0
+def g:AutoPairsReturn(): string
+  if !b:autopairs_enabled
     return ''
-  end
-  let b:autopairs_return_pos = 0
-  let before = getline(line('.')-1)
-  let [ig, ig, afterline] = s:getline()
-  let cmd = ''
+  endif
+  b:autopairs_return_pos = 0
+  const before: string = getline(line('.') - 1)
+  const [_, _, afterline] = Getline()
+  var cmd: string
   for [open, close, opt] in b:AutoPairsList
-    if close == ''
+    if close->empty()
       continue
-    end
+    endif
 
-    if before =~ '\V'.open.'\v\s*$' && afterline =~ '^\s*\V'.close
-      let b:autopairs_return_pos = line('.')
-      if g:AutoPairsCenterLine && winline() * 3 >= winheight(0) * 2
-        " Recenter before adding new line to avoid replacing line content
-        let cmd = "zz"
-      end
-
-      " If equalprg has been set, then avoid call =
-      " https://github.com/jiangmiao/auto-pairs/issues/24
-      if &equalprg != ''
-        return "\<ESC>".cmd."O"
+    if before =~ '\V' .. open .. '\v\s*$' && afterline =~ '^\s*\V' .. close
+      b:autopairs_return_pos = line('.')
+      if AutoPairsCenterLine && winline() * 3 >= winheight(0) * 2
+        # Recenter before adding new line to avoid replacing line content
+        cmd = "zz"
       endif
 
-      " conflict with javascript and coffee
-      " javascript   need   indent new line
-      " coffeescript forbid indent new line
+      # If equalprg has been set, then avoid call =
+      # http//github .. com/jiangmiao/auto-pairs/issues/24
+      if !&equalprg->empty()
+        return "\<ESC>" .. cmd .. "O"
+      endif
+
+      # conflict with javascript and coffee
+      # javascript   need   indent new line
+      # coffeescript forbid indent new line
       if &filetype == 'coffeescript' || &filetype == 'coffee'
-        return "\<ESC>".cmd."k==o"
+        return "\<ESC>" .. cmd .. "k==o"
       else
-        return "\<ESC>".cmd."=ko"
+        return "\<ESC>" .. cmd .. "=ko"
       endif
-    end
+    endif
   endfor
   return ''
-endf
+enddef
 
-func! AutoPairsSpace()
+def g:AutoPairsSpace(): string
   if !b:autopairs_enabled
     return "\<SPACE>"
-  end
+  endif
 
-  let [before, after, ig] = s:getline()
+  const [before, after, _] = Getline()
 
-  for [open, close, opt] in b:AutoPairsList
-    if close == ''
+  for [open, close, _] in b:AutoPairsList
+    if close->empty()
       continue
-    end
-    if before =~ '\V'.open.'\v$' && after =~ '^\V'.close
+    endif
+    if before =~ '\V' .. open .. '\v$' && after =~ '^\V' .. close
       if close =~ '\v^[''"`]$'
         return "\<SPACE>"
       else
-        return "\<SPACE>\<SPACE>".s:Left
-      end
-    end
+        return "\<SPACE>\<SPACE>" .. Left
+      endif
+    endif
   endfor
   return "\<SPACE>"
-endf
+enddef
 
-func! AutoPairsMap(key)
-  " | is special key which separate map command from text
-  let key = a:key
-  if key == '|'
-    let key = '<BAR>'
-  end
-  let escaped_key = substitute(key, "'", "''", 'g')
-  " use expr will cause search() doesn't work
-  execute 'inoremap <buffer> <silent> '.key." <C-R>=AutoPairsInsert('".escaped_key."')<CR>"
-endf
+def AutoPairsMap(key: string)
+  # | is special key which separate map command from text
+  const lkey: string = (key == '|') ? '<BAR>' : key
+  const escaped_key: string = lkey->substitute("'", "''", 'g')
+  # use expr will cause search() doesn't work
+  printf('inoremap <buffer><silent> %s <C-R>=AutoPairsInsert("%s")<CR>',
+      lkey,
+      escaped_key
+  )->execute()
+enddef
 
-func! AutoPairsToggle()
+def g:AutoPairsToggle()
   if b:autopairs_enabled
-    let b:autopairs_enabled = 0
-    echo 'AutoPairs Disabled.'
+    b:autopairs_enabled = false
+    echo 'AutoPairs Disabled .. '
   else
-    let b:autopairs_enabled = 1
-    echo 'AutoPairs Enabled.'
-  end
-  return ''
-endf
+    b:autopairs_enabled = true
+    echo 'AutoPairs Enabled .. '
+  endif
+enddef
 
-func! s:sortByLength(i1, i2)
-  return len(a:i2[0])-len(a:i1[0])
-endf
+def AutoPairsInit()
 
-func! AutoPairsInit()
-  let b:autopairs_loaded  = 1
-  if !exists('b:autopairs_enabled')
-    let b:autopairs_enabled = 1
-  end
+  b:autopairs_loaded = true
+  b:autopairs_enabled = true
 
   if !exists('b:AutoPairs')
-    let b:AutoPairs = AutoPairsDefaultPairs()
-  end
-
-  if !exists('b:AutoPairsMoveCharacter')
-    let b:AutoPairsMoveCharacter = g:AutoPairsMoveCharacter
-  end
-
-  let b:autopairs_return_pos = 0
-  let b:autopairs_saved_pair = [0, 0]
-  let b:AutoPairsList = []
-
-  " buffer level map pairs keys
-  " n - do not map the first charactor of closed pair to close key
-  " m - close key jumps through multi line
-  " s - close key jumps only in the same line
-  for [open, close] in items(b:AutoPairs)
-    let o = open[-1:-1]
-    let c = close[0]
-    let opt = {'mapclose': 1, 'multiline':1}
-    let opt['key'] = c
-    if o == c
-      let opt['multiline'] = 0
-    end
-    let m = matchlist(close, '\v(.*)//(.*)$')
-    if len(m) > 0 
-      if m[2] =~ 'n'
-        let opt['mapclose'] = 0
-      end
-      if m[2] =~ 'm'
-        let opt['multiline'] = 1
-      end
-      if m[2] =~ 's'
-        let opt['multiline'] = 0
-      end
-      let ks = matchlist(m[2], '\vk(.)')
-      if len(ks) > 0
-        let opt['key'] = ks[1]
-        let c = opt['key']
-      end
-      let close = m[1]
-    end
-    call AutoPairsMap(o)
-    if o != c && c != '' && opt['mapclose']
-      call AutoPairsMap(c)
-    end
-    let b:AutoPairsList += [[open, close, opt]]
-  endfor
-
-  " sort pairs by length, longer pair should have higher priority
-  let b:AutoPairsList = sort(b:AutoPairsList, "s:sortByLength")
-
-  for item in b:AutoPairsList
-    let [open, close, opt] = item
-    if open == "'" && open == close
-      let item[0] = '\v(^|\W)\zs'''
-    end
-  endfor
-
-
-  for key in split(b:AutoPairsMoveCharacter, '\s*')
-    let escaped_key = substitute(key, "'", "''", 'g')
-    execute 'inoremap <silent> <buffer> <M-'.key."> <C-R>=AutoPairsMoveCharacter('".escaped_key."')<CR>"
-  endfor
-
-  " Still use <buffer> level mapping for <BS> <SPACE>
-  if g:AutoPairsMapBS
-    " Use <C-R> instead of <expr> for issue #14 sometimes press BS output strange words
-    execute 'inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>'
-  end
-
-  if g:AutoPairsMapCh
-    execute 'inoremap <buffer> <silent> <C-h> <C-R>=AutoPairsDelete()<CR>'
+    b:AutoPairs = AutoPairsDefaultPairs()
   endif
 
-  if g:AutoPairsMapSpace
-    " Try to respect abbreviations on a <SPACE>
-    let do_abbrev = ""
-    if v:version == 703 && has("patch489") || v:version > 703
-      let do_abbrev = "<C-]>"
+  if !exists('b:AutoPairsMoveCharacter')
+    b:AutoPairsMoveCharacter = AutoPairsMoveCharacter
+  endif
+
+  b:autopairs_return_pos = 0
+  b:autopairs_saved_pair = [0, 0]
+  b:AutoPairsList = []
+
+  # buffer level map pairs keys
+  # n - do not map the first charactor of closed pair to close key
+  # m - close key jumps through multi line
+  # s - close key jumps only in the same line
+  for [open, close] in b:AutoPairs->items()
+    const o: string = open[-1]
+    var c: string = close[0]
+    var opt: dict<any> = {
+      'key': c,
+      'mapclose': true,
+      'multiline': (o == c) ? false : true,
+    }
+    const m: list<string> = close->matchlist('\v(.*)//(.*)$')
+    if m->len() > 0
+      if m[2] =~ 'n'
+        opt['mapclose'] = false
+      endif
+      if m[2] =~ 'm'
+        opt['multiline'] = true
+      endif
+      if m[2] =~ 's'
+        opt['multiline'] = false
+      endif
+      const ks: list<string> = m[2]->matchlist('\vk(.)')
+      if ks->len() > 0
+        opt['key'] = ks[1]
+        c = opt['key']
+      endif
     endif
-    execute 'inoremap <buffer> <silent> <SPACE> '.do_abbrev.'<C-R>=AutoPairsSpace()<CR>'
-  end
+    AutoPairsMap(o)
+    if o != c && !c->empty() && opt['mapclose']
+      AutoPairsMap(c)
+    endif
+    b:AutoPairsList += [[open, close, opt]]
+  endfor
 
-  if g:AutoPairsShortcutFastWrap != ''
-    execute 'inoremap <buffer> <silent> '.g:AutoPairsShortcutFastWrap.' <C-R>=AutoPairsFastWrap()<CR>'
-  end
+  # sort pairs by length, longer pair should have higher priority
+  b:AutoPairsList = b:AutoPairsList->sort(
+    (i1: list<any>, i2: list<any>): number => i2[0]->len() - i1[0]->len()
+  )
 
-  if g:AutoPairsShortcutBackInsert != ''
-    execute 'inoremap <buffer> <silent> '.g:AutoPairsShortcutBackInsert.' <C-R>=AutoPairsBackInsert()<CR>'
-  end
+  for item in b:AutoPairsList
+    const [open, close, _] = item
+    if open == "'" && open == close
+      item[0] = '\v(^|\W)\zs'''
+    endif
+  endfor
 
-  if g:AutoPairsShortcutToggle != ''
-    " use <expr> to ensure showing the status when toggle
-    execute 'inoremap <buffer> <silent> <expr> '.g:AutoPairsShortcutToggle.' AutoPairsToggle()'
-    execute 'noremap <buffer> <silent> '.g:AutoPairsShortcutToggle.' :call AutoPairsToggle()<CR>'
-  end
 
-  if g:AutoPairsShortcutJump != ''
-    execute 'inoremap <buffer> <silent> ' . g:AutoPairsShortcutJump. ' <ESC>:call AutoPairsJump()<CR>a'
-    execute 'noremap <buffer> <silent> ' . g:AutoPairsShortcutJump. ' :call AutoPairsJump()<CR>'
-  end
+  for key in b:AutoPairsMoveCharacter->split('\s*')
+    const escaped_key: string = key->substitute("'", "''", 'g')
+    printf('inoremap <buffer><silent> <M-%s> <C-R>=AutoPairsMoveCharacterF("%s")<CR>',
+      key,
+      escaped_key
+    )->execute()
+  endfor
 
-  if &keymap != ''
-    let l:imsearch = &imsearch
-    let l:iminsert = &iminsert
-    let l:imdisable = &imdisable
-    execute 'setlocal keymap=' . &keymap
-    execute 'setlocal imsearch=' . l:imsearch
-    execute 'setlocal iminsert=' . l:iminsert
-    if l:imdisable
+  # Still use <buffer> level mapping for <BS> <SPACE>
+  if AutoPairsMapBS
+    # Use <C-R> instead of <expr> for issue #14 sometimes press BS output strange words
+    execute 'inoremap <buffer><silent> <BS> <C-R>=AutoPairsDelete()<CR>'
+  endif
+
+  if AutoPairsMapCh
+    execute 'inoremap <buffer><silent> <C-h> <C-R>=AutoPairsDelete()<CR>'
+  endif
+
+  if AutoPairsMapSpace
+    # Try to respect abbreviations on a <SPACE>
+    const do_abbrev: string = 
+      (v:version == 703 && has("patch489") || v:version > 703)
+    ? "<C-]>"
+    : ''
+    printf('inoremap <buffer>silent> <SPACE> %s<C-R>=AutoPairsSpace()<CR>',
+      do_abbrev
+    )->execute()
+  endif
+
+  if !AutoPairsShortcutFastWrap->empty()
+    printf('inoremap <buffer><silent> %s <C-R>=AutoPairsFastWrap()<CR>',
+      AutoPairsShortcutFastWrap
+    )->execute()
+  endif
+
+  if !AutoPairsShortcutBackInsert->empty()
+    printf('inoremap <buffer><silent> %s <C-R>=AutoPairsBackInsert()<CR>',
+      AutoPairsShortcutBackInsert
+    )->execute()
+  endif
+
+  if !AutoPairsShortcutToggle->empty()
+    # use <expr> to ensure showing the status when toggle
+    printf('inoremap <buffer><silent><expr> %s AutoPairsToggle()',
+      AutoPairsShortcutToggle
+    )->execute()
+    printf('noremap <buffer><silent> %s :call AutoPairsToggle()<CR>',
+      AutoPairsShortcutToggle
+    )->execute()
+  endif
+
+  if !AutoPairsShortcutJump->empty()
+    printf('inoremap <buffer><silent> %s <ESC>:call AutoPairsJump()<CR>a',
+      AutoPairsShortcutJump
+    )->execute()
+    printf('noremap <buffer><silent> %s :call AutoPairsJump()<CR>',
+      AutoPairsShortcutJump
+    )->execute()
+  endif
+
+  if !&keymap->empty()
+    const imsearch: number = &imsearch
+    const iminsert: number = &iminsert
+    const imdisable: bool = &imdisable
+    execute 'setlocal keymap=' .. &keymap
+    execute 'setlocal imsearch=' .. imsearch
+    execute 'setlocal iminsert=' .. iminsert
+    if imdisable
       execute 'setlocal imdisable'
     else
       execute 'setlocal noimdisable'
-    end
-  end
+    endif
+  endif
 
-endf
+enddef
 
-func! s:ExpandMap(map)
-  let map = a:map
-  let map = substitute(map, '\(<Plug>\w\+\)', '\=maparg(submatch(1), "i")', 'g')
-  let map = substitute(map, '\(<Plug>([^)]*)\)', '\=maparg(submatch(1), "i")', 'g')
-  return map
-endf
+const ExpandMap = (map: string): string => map
+  ->substitute('\(<Plug>\w\+\)', '\=maparg(submatch(1), "i")', 'g')
+  ->substitute('\(<Plug>([^)]*)\)', '\=maparg(submatch(1), "i")', 'g')
 
-func! AutoPairsTryInit()
+def AutoPairsTryInit()
   if exists('b:autopairs_loaded')
     return
-  end
+  endif
 
-  " for auto-pairs starts with 'a', so the priority is higher than supertab and vim-endwise
-  "
-  " vim-endwise doesn't support <Plug>AutoPairsReturn
-  " when use <Plug>AutoPairsReturn will cause <Plug> isn't expanded
-  "
-  " supertab doesn't support <SID>AutoPairsReturn
-  " when use <SID>AutoPairsReturn  will cause Duplicated <CR>
-  "
-  " and when load after vim-endwise will cause unexpected endwise inserted.
-  " so always load AutoPairs at last
+  # for auto-pairs starts with 'a', so the priority is higher than supertab and vim-endwise
+  # vim-endwise doesn't support <Plug>AutoPairsReturn
+  # when use <Plug>AutoPairsReturn will cause <Plug> isn't expanded
+  # supertab doesn't support <SID>AutoPairsReturn
+  # when use <SID>AutoPairsReturn  will cause Duplicated <CR>
+  # and when load after vim-endwise will cause unexpected endwise inserted .. 
+  # so always load AutoPairs at last
 
-  " Buffer level keys mapping
-  " comptible with other plugin
-  if g:AutoPairsMapCR
+  # Buffer level keys mapping
+  # comptible with other plugin
+  const info: dict<any> = maparg('<CR>', 'i', 0, 1)
+  var old_cr: string
+  var is_expr: bool
+  var wrapper_name: string
+  if AutoPairsMapCR
     if v:version == 703 && has('patch32') || v:version > 703
-      " VIM 7.3 supports advancer maparg which could get <expr> info
-      " then auto-pairs could remap <CR> in any case.
-      let info = maparg('<CR>', 'i', 0, 1)
-      if empty(info)
-        let old_cr = '<CR>'
-        let is_expr = 0
+      # VIM 7 .. 3 supports advancer maparg which could get <expr> info
+      # then auto-pairs could remap <CR> in any case .. 
+      if info->empty()
+        old_cr = '<CR>'
+        is_expr = false
       else
-        let old_cr = info['rhs']
-        let old_cr = s:ExpandMap(old_cr)
-        let old_cr = substitute(old_cr, '<SID>', '<SNR>' . info['sid'] . '_', 'g')
-        let is_expr = info['expr']
-        let wrapper_name = '<SID>AutoPairsOldCRWrapper73'
+        old_cr = ExpandMap(info['rhs'])->substitute(
+          '<SID>',
+          printf('<SNR>%s_', info['sid']),
+          'g'
+        )
+        is_expr = info['expr']
+        wrapper_name = '<SID>AutoPairsOldCRWrapper73'
       endif
     else
-      " VIM version less than 7.3
-      " the mapping's <expr> info is lost, so guess it is expr or not, it's
-      " not accurate.
-      let old_cr = maparg('<CR>', 'i')
-      if old_cr == ''
-        let old_cr = '<CR>'
-        let is_expr = 0
+      # VIM version less than 7 .. 3
+      # the mapping's <expr> info is lost, so guess it is expr or not, it's
+      # not accurate .. 
+      old_cr = maparg('<CR>', 'i')
+      if old_cr->empty()
+        old_cr = '<CR>'
+        is_expr = false
       else
-        let old_cr = s:ExpandMap(old_cr)
-        " old_cr contain (, I guess the old cr is in expr mode
-        let is_expr = old_cr =~ '\V(' && toupper(old_cr) !~ '\V<C-R>'
+        old_cr = ExpandMap(old_cr)
+        # old_cr contain (, I guess the old cr is in expr mode
+        is_expr = old_cr =~ '\V(' && old_cr->toupper() !~ '\V<C-R>'
 
-        " The old_cr start with " it must be in expr mode
-        let is_expr = is_expr || old_cr =~ '\v^"'
-        let wrapper_name = '<SID>AutoPairsOldCRWrapper'
-      end
-    end
+        # The old_cr start with # it must be in expr mode
+        is_expr = is_expr || old_cr =~ '\v^"'
+        wrapper_name = '<SID>AutoPairsOldCRWrapper'
+      endif
+    endif
 
     if old_cr !~ 'AutoPairsReturn'
       if is_expr
-        " remap <expr> to `name` to avoid mix expr and non-expr mode
-        execute 'inoremap <buffer> <expr> <script> '. wrapper_name . ' ' . old_cr
-        let old_cr = wrapper_name
-      end
-      " Always silent mapping
-      execute 'inoremap <script> <buffer> <silent> <CR> '.old_cr.'<SID>AutoPairsReturn'
-    end
+        # remap <expr> to `name` to avoid mix expr and non-expr mode
+        printf('inoremap <buffer><expr><script> %s %s',
+          wrapper_name,
+          old_cr
+        )->execute()
+        old_cr = wrapper_name
+      endif
+      # Always silent mapping
+      printf('inoremap <buffer><silent><script> <CR> %s<SID>AutoPairsReturn',
+        old_cr,
+      )->execute()
+    endif
   endif
-  call AutoPairsInit()
-endf
+  AutoPairsInit()
+enddef
 
-" Always silent the command
+# Always silent the command
 inoremap <silent> <SID>AutoPairsReturn <C-R>=AutoPairsReturn()<CR>
 imap <script> <Plug>AutoPairsReturn <SID>AutoPairsReturn
 
