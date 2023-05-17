@@ -12,6 +12,8 @@ inoremap <buffer><silent><expr><Tab> CheckTab()
 
 highlight! def link Conceal Normal
 setlocal foldlevel=99
+setlocal colorcolumn=79
+setlocal spell spelllang=en_us,cjk
 
 nnoremap <buffer><silent> mh <Cmd>call setline('.', [
       \ '---',
@@ -37,10 +39,7 @@ inoremap <buffer><silent> <C-S> **** <++><Esc>F*hi
 
 nnoremap <buffer><silent> mt <ScriptCmd>shortcuts.InsertTable()<CR>
 
-function FormatTableForLagecy() range
-  call shortcuts.FormatTable(a:firstline, a:lastline)
-endfunction
-xnoremap <buffer><silent> mft :call <SID>FormatTableForLagecy()<CR>
+xnoremap <buffer><silent> mft :call <SID>shortcuts.FormatTable(line("'<"), line("'>"))<CR>
 command! -buffer -range FmtTbl call <SID>shortcuts.FormatTable(<line1>, <line2>)
 
 nnoremap <buffer><silent> mg <ScriptCmd>shortcuts.InsertImageFromClip()<CR>

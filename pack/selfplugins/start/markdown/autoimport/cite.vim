@@ -12,7 +12,7 @@ vim9script
 #
 # ========================================================
 
-var citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json'))
+const citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json'))
 
 var cmpopt: string = null_string
 var citations: list<dict<string>> = null_list
@@ -37,10 +37,8 @@ enddef
 def Initial(): list<dict<string>>
 
   if citations == null_list
-    citations = readfile(citepath)
-                  ->join()
-                  ->json_decode()
-                  ->map(CreateInfo)
+    citations = readfile(citepath)->join()
+      ->json_decode()->map(CreateInfo)
   endif
   return citations
 enddef
@@ -51,7 +49,10 @@ def Cite(timer: number): void
   silent! timer_stop(cite_act_timer)
   cite_act_timer = timer
 
-  var stoppos: number = charcol('.') - 2
+  # Get current position column index of character
+  const stoppos: number = charcol('.') - 2
+  if stoppos <= 0 | return | endif
+
   var startpos: number = stoppos
   const str: string = getline('.')
   while str[startpos] =~ '\w'
@@ -61,11 +62,10 @@ def Cite(timer: number): void
   if str[startpos] == '@'
     const words: string = str[startpos + 1 : stoppos]
     if words->len() >= 3
-      const at: number = searchpos('@', 'nbc', line('.'))[1]
       Initial()->copy()->filter((_, item) => 
-        item->get('word', null_string) =~? words ||
-        item->get('info', null_string) =~? words
-      )->complete(at + 1)
+        item->get('word', '') =~? words ||
+        item->get('info', '') =~? words
+      )->complete(str->byteidx(startpos) + 2)
     endif
   endif
 enddef
@@ -74,12 +74,12 @@ export def EnableCitation(): void
 
   augroup CiteComplete
     autocmd!
-    autocmd CursorMovedI <buffer> call timer_start(1, 'Cite')
+    autocmd CursorMovedI <buffer> call timer_start(300, 'Cite')
     inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   augroup End
 
   cmpopt = &completeopt
-  setlocal completeopt=menu,noselect
+  setlocal completeopt=menu,noinsert,popup
 
 enddef
 

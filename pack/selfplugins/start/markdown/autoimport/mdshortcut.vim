@@ -12,8 +12,8 @@ vim9script
 #
 # ========================================================
 
-var img_dir: string = get(g:, 'img_dir', 'Assets')
-var html_yaml: string = get(g:, 'html_yaml', expand('~/Documents/Pandoc/defaults/HTML.yaml'))
+const img_dir: string = get(g:, 'img_dir', 'Assets')
+const html_yaml: string = get(g:, 'html_yaml', expand('~/Documents/Pandoc/defaults/HTML.yaml'))
 
 var job_id: job = null_job
 var pandoc_job_id: job = null_job
@@ -47,15 +47,15 @@ export def InsertImageFromClip(): void
   endif
 
   if !isdirectory(img_dir)
-    mkdir(img_dir, 'p', 0750)
+    mkdir(img_dir, 'p', 0o750)
   endif
 
-  const target: string = printf("%s/%s.png", img_dir, imgname)
-  system(put_img_to .. ' ' .. target)
+  const target_pic: string = printf("%s/%s.png", img_dir, imgname)
+  system(put_img_to .. ' ' .. target_pic)
   #Optimized
-  job_start('pngquant -f --ext .png --strip -Q 20-50 ' .. target)
+  job_start('pngquant -f --ext .png --strip -Q 20-50 ' .. target_pic)
 
-  setline('.', "![<++>](" .. target .. "){#fig:<++>}")
+  setline('.', "![<++>](" .. target_pic .. "){#fig:<++>}")
 
 enddef
 
@@ -64,8 +64,7 @@ export def InsertTable(): void
 
   inputsave()
   const XY: list<number> = input('Enter table X×Y(e.g 3,4): ')
-                            ->split(',')
-                            ->map('str2nr(v:val)')
+                            ->split(',')->map('str2nr(v:val)')
   inputrestore()
 
   if XY->empty()
@@ -97,7 +96,7 @@ export def FormatTable(firstline: number, lastline: number): void
       const width: number = max_width[j]
 
       if str =~ '[:-]\{3,}'
-        lines[i][j] = printf(' %s%s%s ', str[0], repeat('-', width - 2), str[-1 : ])
+        lines[i][j] = printf(' %s%s%s ', str[0], repeat('-', width - 2), str[-1])
         continue
       endif
 
@@ -125,15 +124,15 @@ def GetComandTbl(): dict<func()>
           return
         endif
 
-        silent! normal! gv"ad
+        silent! normal! "ad
         exec printf("normal! i[%s](%s)\<Esc>", @a, link)
       },
       'italic': () => {
-        silent! normal! gv"ad
+        silent! normal! "ad
         exec printf("normal! i*%s*\<Esc>", @a)
       },
       'strong': () => {
-        silent! normal! gv"ad
+        silent! normal! "ad
         exec printf("normal! i**%s**\<Esc>", @a)
       }}
   endif
@@ -144,14 +143,15 @@ enddef
 export def Command(action: string): void
   const rgs_a: string = @a
   GetComandTbl()->get(action, () => {
-    @a = rgs_a
+    echowin 'Error command when calls function `Command(action: string)`'
   })()
+  @a = rgs_a
 enddef
 
 
 def PreviewInBrowser(job: job, msg: number): void
   if job_id == null_job && target->filereadable()
-    job_id = ['firefox', target]->job_start()
+    job_id = ['vimb', target]->job_start()
   endif
 enddef
 
@@ -167,7 +167,7 @@ export def Markdown2HTMLNPreview(): void
     expand('%'),
     '-o', target,
     ], {
-     'exit_cb': PreviewInBrowser,
+     'exit_cb': 'PreviewInBrowser',
      'callback': (_, msg) => popup_notification(msg, {
         'time': 90000, 'moved': 'any',
       }),
