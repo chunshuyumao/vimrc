@@ -130,3 +130,5 @@ g:terminal_ansi_colors = [
        '#839496', '#6C71C4', '#93A1A1', '#FDF6E3',
        ]
 
+set hlsearch incsearch
+noremap <Esc> :nohlsearch<CR><Esc>

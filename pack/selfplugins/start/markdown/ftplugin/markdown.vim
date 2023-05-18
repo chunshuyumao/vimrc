@@ -4,7 +4,7 @@ import autoload '../autoimport/mdshortcut.vim' as shortcuts
 import autoload '../autoimport/cite.vim' as cite
 
 const CheckTab = () => search('<++>', 'ncz', line('.') + 3) != 0 
-        ? "\<Esc>/<++>\<CR>\:nohlsearch\<CR>c4l" 
+        ? "\<Esc>/<++>\<CR>c4l" 
         : "\<Tab>"
 
 nnoremap <buffer><silent><expr><Tab> CheckTab()

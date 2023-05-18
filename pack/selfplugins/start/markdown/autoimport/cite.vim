@@ -14,14 +14,14 @@ vim9script
 
 const citepath = get(g:, 'citepath', expand('~/Documents/Pandoc/ZoteroLibrary.json'))
 
-var cmpopt: string = null_string
+var cmpopt: string
 var citations: list<dict<string>> = null_list
 var cite_act_timer: number = -1
 
 def CreateInfo(_: number, item: dict<any>): dict<string>
 
   const authors: string = item->get('author', [])
-    ->map((_, athr): string => 
+    ->map((_, athr): string =>
     athr->get('literal') ??
     athr->get('family', '') .. ' ' .. athr->get('given')
   )->join(', ')
@@ -75,9 +75,9 @@ export def EnableCitation(): void
   augroup CiteComplete
     autocmd!
     autocmd CursorMovedI <buffer> call timer_start(300, 'Cite')
-    inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   augroup End
 
+  inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   cmpopt = &completeopt
   setlocal completeopt=menu,noinsert,popup
 

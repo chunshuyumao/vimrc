@@ -20,10 +20,13 @@ exec printf('iab xdate %s', strftime('%Y-%m-%d %H:%M:%S %A'))
 # 打开文件时恢复上一次光标所在位置
 # ---------------------------------------------------------
 
-autocmd BufReadPost * 
-      \ if 1 < line("'\"") && line("'\"") <= line("$") && 
-      \ &filetype !~# 'commit' | execute "normal! g`\"" |
-      \ endif
+autocmd BufReadPost * {
+  if 1 < line("'\"")
+      && line("'\"") <= line("$")
+      && &filetype !~# 'commit'
+    execute 'normal! g`"'
+  endif
+}
 
 
 # ---------------------------------------------------------
@@ -34,22 +37,12 @@ autocmd FileType h,hpp,c,cpp,cxx,lua,zsh,sh,vim
       \ setl tabstop=2 shiftwidth=2
 
 
-# ---------------------------------------------------------
-# 查看原始文件与当前文件的差异 
-# ---------------------------------------------------------
-
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 
-        \ 0d_ | diffthis | wincmd p | diffthis
-endif
-
-
 # --------------------------------------------------------
 # 返回窗口文本的字数
 # --------------------------------------------------------
 
 const DoCountWord = (filename: string): void => {
-  echowin ' word: ' .. expand(filename)->readfile()->join('𰻝')
+  echomsg ' word: ' .. expand(filename)->readfile()->join('𰻝')
   ->substitute('[\r\n]\+\|\s\+', '𰻝', 'g')
   ->substitute('[\x00-\xff]\+', 'w', 'g')
   ->substitute('𰻝\+', '', 'g')
@@ -63,16 +56,14 @@ command! -nargs=? -complete=file WordCount call DoCountWord(<q-args> ?? '%')
 # 重命名文件
 # --------------------------------------------------------
 
-def DateForFilename(
-    arglead: string,
-    cmdline: string,
-    curpos: number
-): string
-  return strftime('%Y%m%d%H%M%S')
-enddef
-command! -nargs=1 -complete=custom,DateForFilename
-      \ Rename saveas <args> 
-      \ | silent! call expand('#')->delete()
+const DateForFilename = (_, _, _): string => strftime('%Y%m%d%H%M%S')
+command! -nargs=1 -complete=custom,DateForFilename Rename {
+  :saveas <args>
+  const fname: string = expand('#')
+  if fname->filereadable()
+    fname->delete()
+  endif
+}
 
 
 # --------------------------------------------------------

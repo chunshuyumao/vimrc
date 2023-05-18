@@ -43,7 +43,7 @@ enddef
 
 const AutoPairsMapBS: bool = get(g:, 'AutoPairsMapBS', true)
 # Map <C-h> as the same BS
-const AutoPairsMapCh: bool = get(g:, 'AutoPairsMapBS', true)
+const AutoPairsMapCh: bool = get(g:, 'AutoPairsMapCh', true)
 const AutoPairsMapCR: bool = get(g:, 'AutoPairsMapCR', true)
 const AutoPairsWildClosedPair: string = get(g:, "AutoPairsWildClosedPair", '')
 const AutoPairsMapSpace: bool = get(g:, 'AutoPairsMapSpace', true)
@@ -92,7 +92,7 @@ def Getline(): list<string>
     for i in range(line('.') + 1, line('$'))
       line = getline(i)
       after = after .. ' ' .. line
-      if !(line =~ '\v^\s*$')
+      if line !~ '\v^\s*$'
         break
       endif
     endfor
@@ -169,12 +169,12 @@ def g:AutoPairsInsert(key: string): string
         # delete pair
         for [o, c, opts] in b:AutoPairsList
           const os: list<string> = Matchend(before, o)
-          if os->len() && os[1]->len() < target->len()
+          if os->len() > 0 && os[1]->len() < target->len()
             # any text before openPair should not be deleted
             continue
           endif
           const cs: list<string> = Matchbegin(afterline, c)
-          if os->len() && cs->len()
+          if os->len() > 0 && cs->len() > 0
             found = true
             before = os[1]
             afterline = cs[2]
@@ -186,7 +186,7 @@ def g:AutoPairsInsert(key: string): string
         if !found
           # delete charactor
           ms = Matchend(before, '\v.')
-          if ms->len()
+          if ms->len() > 0
             before = ms[1]
             bs = bs .. Backspace(ms[2])
           endif
@@ -371,7 +371,7 @@ def AutoPairsMap(key: string)
   const lkey: string = (key == '|') ? '<BAR>' : key
   const escaped_key: string = lkey->substitute("'", "''", 'g')
   # use expr will cause search() doesn't work
-  printf('inoremap <buffer><silent> %s <C-R>=AutoPairsInsert("%s")<CR>',
+  printf("inoremap <buffer><silent> %s <C-R>=AutoPairsInsert('%s')<CR>",
       lkey,
       escaped_key
   )->execute()
@@ -455,7 +455,7 @@ def AutoPairsInit()
 
   for key in b:AutoPairsMoveCharacter->split('\s*')
     const escaped_key: string = key->substitute("'", "''", 'g')
-    printf('inoremap <buffer><silent> <M-%s> <C-R>=AutoPairsMoveCharacterF("%s")<CR>',
+    printf("inoremap <buffer><silent> <M-%s> <C-R>=AutoPairsMoveCharacterF('%s')<CR>",
       key,
       escaped_key
     )->execute()
@@ -477,7 +477,7 @@ def AutoPairsInit()
       (v:version == 703 && has("patch489") || v:version > 703)
     ? "<C-]>"
     : ''
-    printf('inoremap <buffer>silent> <SPACE> %s<C-R>=AutoPairsSpace()<CR>',
+    printf('inoremap <buffer><silent> <SPACE> %s<C-R>=AutoPairsSpace()<CR>',
       do_abbrev
     )->execute()
   endif
@@ -609,4 +609,4 @@ enddef
 inoremap <silent> <SID>AutoPairsReturn <C-R>=AutoPairsReturn()<CR>
 imap <script> <Plug>AutoPairsReturn <SID>AutoPairsReturn
 
-au BufEnter * :call AutoPairsTryInit()
+autocmd BufEnter * :call AutoPairsTryInit()

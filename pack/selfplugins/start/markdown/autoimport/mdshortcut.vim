@@ -24,7 +24,7 @@ var command_tbl: dict<func()> = null_dict
 export def InsertImageFromClip(): void
 
   if !executable('xclip')
-    echowin 'Please install xclip for getting image!'
+    echomsg 'Please install xclip for getting image!'
     return
   endif
 
@@ -143,7 +143,7 @@ enddef
 export def Command(action: string): void
   const rgs_a: string = @a
   GetComandTbl()->get(action, () => {
-    echowin 'Error command when calls function `Command(action: string)`'
+    echomsg 'Error command when calls function `Command(action: string)`'
   })()
   @a = rgs_a
 enddef
