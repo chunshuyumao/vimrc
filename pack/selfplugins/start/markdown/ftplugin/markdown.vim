@@ -3,7 +3,7 @@ vim9script
 import autoload '../autoimport/mdshortcut.vim' as shortcuts
 import autoload '../autoimport/cite.vim' as cite
 
-const CheckTab = () => search('<++>', 'ncz', line('.') + 3) != 0 
+const CheckTab = () => search('<++>', 'ncz', line('.') + 3) != 0
         ? "\<Esc>/<++>\<CR>c4l" 
         : "\<Tab>"
 
@@ -48,6 +48,5 @@ inoremap <buffer><silent> <C-G> ![](<++>){#fig:<++>} <Enter><++><Esc>kF[a
 nnoremap <buffer> mz "=<SID>shortcuts.Cite()<CR>p
 inoremap <buffer> <C-Z> <C-R>=<SID>shortcuts.Cite()<CR>
 
-command! -buffer RefreshCite call <SID>cite.Initial()
 command! -buffer EnableCite call <SID>cite.EnableCitation()
 command! -buffer DisableCite call <SID>cite.DisableCitation()

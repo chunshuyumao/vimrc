@@ -298,9 +298,10 @@ def g:AutoPairsMoveCharacterF(key: string): string
   )
 enddef
 
-def g:AutoPairsBackInsert()
+def g:AutoPairsBackInsert(): string
   const pair = b:autopairs_saved_pair[0]
-  const pos: number  = b:autopairs_saved_pair[1]
+  echom pair
+  const pos: list<number> = b:autopairs_saved_pair[1]
   setpos('.', pos)
   return pair
 enddef
@@ -401,7 +402,7 @@ def AutoPairsInit()
   endif
 
   b:autopairs_return_pos = 0
-  b:autopairs_saved_pair = [0, 0]
+  b:autopairs_saved_pair = ['', []]
   b:AutoPairsList = []
 
   # buffer level map pairs keys
@@ -483,13 +484,13 @@ def AutoPairsInit()
   endif
 
   if !AutoPairsShortcutFastWrap->empty()
-    printf('inoremap <buffer><silent> %s <C-R>=AutoPairsFastWrap()<CR>',
+    printf('inoremap <buffer><silent> %s<C-R>=AutoPairsFastWrap()<CR>',
       AutoPairsShortcutFastWrap
     )->execute()
   endif
 
   if !AutoPairsShortcutBackInsert->empty()
-    printf('inoremap <buffer><silent> %s <C-R>=AutoPairsBackInsert()<CR>',
+    printf('inoremap <buffer><silent> %s<C-R>=AutoPairsBackInsert()<CR>',
       AutoPairsShortcutBackInsert
     )->execute()
   endif

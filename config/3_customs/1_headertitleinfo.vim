@@ -14,7 +14,7 @@ vim9script
 # 自动添加头标注
 # ---------------------------------------------------------
 
-var header: dict<dict<string>> = {
+const header: dict<dict<string>> = {
     'r':      { 'shabang': 'Rscript'                   },
     'sh':     { 'shabang': 'bash'                      },
     'zsh':    { 'shabang': 'zsh'                       },

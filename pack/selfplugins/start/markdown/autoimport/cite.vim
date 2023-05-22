@@ -77,7 +77,6 @@ export def EnableCitation(): void
     autocmd CursorMovedI <buffer> call timer_start(300, 'Cite')
   augroup End
 
-  inoremap <buffer><silent><expr><CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
   cmpopt = &completeopt
   setlocal completeopt=menu,noinsert,popup
 
