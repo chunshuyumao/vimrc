@@ -70,9 +70,8 @@ set smoothscroll
 # ---------------------------------------------------------
 # 保持鼠标所在行为屏幕中央
 # ---------------------------------------------------------
-const MidCol = (): void => float2nr(win_getid()->winheight() / 2)
-exec 'set scrolloff=' .. MidCol()
-autocmd VimResized * let &scrolloff = MidCol
+set scrolloff=999
+
 
 # ---------------------------------------------------------
 # 编码配置
@@ -104,7 +103,7 @@ filetype plugin indent on
 # 快捷键打开当前目录
 # ---------------------------------------------------------
 
-g:netrw_banner = v:false
+g:netrw_banner = false
 # 20% 窗口大小
 g:netrw_winsize = 20
 # 树状目录
@@ -131,4 +130,3 @@ g:terminal_ansi_colors = [
        ]
 
 set hlsearch incsearch
-noremap <Esc> :nohlsearch<CR><Esc>

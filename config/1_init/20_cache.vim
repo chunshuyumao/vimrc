@@ -25,7 +25,7 @@ set writebackup
 
 # 如果不存在文件夹，则创建
 if !isdirectory(backupdir)
-  mkdir(backupdir, 'p', 0750)
+  mkdir(backupdir, 'p', 0o750)
 endif
 
 # 设置备份文件目录
@@ -43,7 +43,7 @@ if has('persistent_undo')
 
   # 如果不存在文件夹，则创建
   if !isdirectory(undodir)
-    mkdir(undodir, 'p', 0750)
+    mkdir(undodir, 'p', 0o750)
   endif
 
   # 设置撤销操作保存目录
@@ -60,7 +60,7 @@ set history=10000
 
 # 如果不存在文件夹，则创建
 if !isdirectory(swapdir)
-  mkdir(swapdir, 'p', 0750)
+  mkdir(swapdir, 'p', 0o750)
 endif
 
 # 设置交换文件目录
