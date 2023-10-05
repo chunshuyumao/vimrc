@@ -15,6 +15,13 @@ setlocal foldlevel=99
 setlocal colorcolumn=79
 setlocal spell spelllang=en_us,cjk
 
+iunmap <CR>
+inoremap <silent><expr> <CR> coc#pum#visible()
+      \ ? coc#pum#confirm()
+      \ : pumvisible()
+          \ ? "\<CR>"
+          \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 nnoremap <buffer><silent> mh <Cmd>call setline('.', [
       \ '---',
       \ 'title: <++>',

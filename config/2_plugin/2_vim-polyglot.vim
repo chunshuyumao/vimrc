@@ -1,4 +1,4 @@
-"let g:polyglot_disabled = ['markdown.plugin']
+let g:polyglot_disabled = ['markdown', 'css']
 let g:markdown_folding = v:true
 let g:vim_markdown_math = v:true
 let g:vim_markdown_toc_autofit = v:true

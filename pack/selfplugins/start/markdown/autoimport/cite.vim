@@ -62,7 +62,7 @@ def Cite(timer: number): void
   if str[startpos] == '@'
     const words: string = str[startpos + 1 : stoppos]
     if words->len() >= 3
-      Initial()->copy()->filter((_, item) => 
+      Initial()->copy()->filter((_, item) =>
         item->get('word', '') =~? words ||
         item->get('info', '') =~? words
       )->complete(str->byteidx(startpos) + 2)

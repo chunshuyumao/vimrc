@@ -34,23 +34,24 @@ autocmd BufReadPost * {
 # ---------------------------------------------------------
 
 autocmd FileType h,hpp,c,cpp,cxx,lua,zsh,sh,vim
-      \ setl tabstop=2 shiftwidth=2
+      \ setlocal tabstop=2 shiftwidth=2
+
+
+autocmd FileType md,markdown,text,txt,log setlocal smoothscroll
 
 
 # --------------------------------------------------------
 # 返回窗口文本的字数
 # --------------------------------------------------------
 
-const DoCountWord = (filename: string): void => {
-  echomsg ' word: ' .. expand(filename)->readfile()->join('𰻝')
+command! -nargs=? -complete=file WordCount {
+  echomsg ' word: ' .. expand(<q-args> ?? '%')->readfile()->join('𰻝')
   ->substitute('[\r\n]\+\|\s\+', '𰻝', 'g')
   ->substitute('[\x00-\xff]\+', 'w', 'g')
   ->substitute('𰻝\+', '', 'g')
   ->substitute('\A', 'w', 'g')
   ->len()
 }
-command! -nargs=? -complete=file WordCount call DoCountWord(<q-args> ?? '%')
-
 
 # --------------------------------------------------------
 # 重命名文件
@@ -79,3 +80,12 @@ nnoremap <silent> gj j
 nnoremap <silent> gk k
 nnoremap <silent> g<Up> <Up>
 nnoremap <silent> g<Down> <Down>
+
+# --------------------------------------------------------
+# Search in all currently opened buffers
+# --------------------------------------------------------
+
+command! -nargs=1 Search {
+  exe ':bufdo silent! lvimgrepadd <args> %'
+  :lopen
+}
