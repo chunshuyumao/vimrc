@@ -3,6 +3,8 @@ vim9script
 import autoload '../autoimport/mdshortcut.vim' as shortcuts
 import autoload '../autoimport/cite.vim' as cite
 
+silent! :CocDisable<CR>
+
 const CheckTab = () => search('<++>', 'ncz', line('.') + 3) != 0
         ? "\<Esc>/<++>\<CR>c4l" 
         : "\<Tab>"

@@ -18,6 +18,9 @@ var cmpopt: string
 var citations: list<dict<string>> = null_list
 var cite_act_timer: number = -1
 
+var prev_cursor_pos_x: number = -1
+var prev_cursor_pos_y: number = -1
+
 def CreateInfo(_: number, item: dict<any>): dict<string>
 
   const authors: string = item->get('author', [])
@@ -46,6 +49,17 @@ enddef
 
 def Cite(timer: number): void
 
+  const current_cursor_pos_x: number = col('.')
+  const current_cursor_pos_y: number = line('.')
+
+  if current_cursor_pos_x == prev_cursor_pos_x
+    && current_cursor_pos_y == prev_cursor_pos_y
+    return
+  endif
+
+  prev_cursor_pos_x = current_cursor_pos_x
+  prev_cursor_pos_y = current_cursor_pos_y
+
   silent! timer_stop(cite_act_timer)
   cite_act_timer = timer
 
@@ -66,6 +80,7 @@ def Cite(timer: number): void
         item->get('word', '') =~? words ||
         item->get('info', '') =~? words
       )->complete(str->byteidx(startpos) + 2)
+      
     endif
   endif
 enddef

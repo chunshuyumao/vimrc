@@ -86,6 +86,6 @@ nnoremap <silent> g<Down> <Down>
 # --------------------------------------------------------
 
 command! -nargs=1 Search {
-  exe ':bufdo silent! lvimgrepadd <args> %'
+  exe ':bufdo! silent! lvimgrepadd <args> %'
   :lopen
 }

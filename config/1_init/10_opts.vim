@@ -31,7 +31,7 @@ set list
 set listchars=tab:·–,space:·,
 
 # 设置延迟重绘
-#set lazyredraw
+set lazyredraw
 
 set autochdir
 
